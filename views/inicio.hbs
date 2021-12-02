@@ -1,0 +1,198 @@
+vc  <!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="\css\inicio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script type="text/javascript" src="\js\inicio.js"></script>
+</head>
+<body>
+    <!-- encabezado -->
+    <div class = "encabezado">
+        <img class="_menu" src="..\resources\images\otros\menu.svg" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+        <img class="_carrito" src="..\resources\images\otros\carrito.svg" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        
+    </div>
+
+    <!-- fondo -->
+    <div class="background">
+        <img class="background-img" src="..\resources\images\otros\background.jpg">
+        <div class="principal">
+            <img class="logo_principal" src="..\resources\images\otros\logo.png">
+            <h2>HECHO  CON AMOR</h2>
+            <!-- Cajita busqueda -->
+            <input type="text" required value="Buscar">
+            <br><br>
+        </div>
+    </div>
+    
+
+    <!-- Burbujitas -->
+    <div class="wrapper">
+        <a id="enlace-ig2" target="_blank">
+            <div class="icon instagram">
+                <div class="tooltip">Instagram</div>
+                <span><i class="fab fa-instagram">
+                </i></span>
+            </div>
+        </a>
+        <a id="enlace-fb2" target="_blank">
+            <div class="icon facebook">
+            <div class="tooltip">Facebook</div>
+            <span><i class="fab fa-facebook-f"></i></span>
+            </div>
+        </a>
+        <a id="enlace-wsp2" target="_blank">
+            <div class="icon whatsapp">
+                <div class="tooltip">WhatsApp</div>
+                <span><i class="fab fa-whatsapp"></i></span>
+            </div>
+        </a>
+        <a id="enlace-tiktok" target="_blank">
+            <div class="icon tiktok">
+                <div class="tooltip">TikTok</div>
+                <span><i class="fab fa-tiktok"></i></span>
+            </div>
+        </a>
+    </div>
+
+    <br><br>
+    <!-- Linea horizontal -->
+    <hr>
+    
+
+    <!-- Fotos -->
+    <!-- Lineas -->
+    <div class = "tz-gallery">
+        <h2 class="inicio_encabezado_linea">LÍNEAS</h2>
+        <div class="carrusel">
+            <div class="box" id="box-lineas"></div>
+            <a class="switchLeft sliderButton" onclick="sliderScrollLeft('box-lineas')"><img src="../resources/images/iconos/previousGreen.png" alt="anterior"></a>
+            <a class="switchRight sliderButton" onclick="sliderScrollRight('box-lineas')"><img src="../resources/images/iconos/nextGreen.png" alt="siguiente"></a>
+        </div>
+    </div>
+    <hr>
+    <!-- combos -->
+    <div class = "tz-gallery">
+        <h2 class="inicio_encabezado_combo">COMBOS</h2>
+        <div class="carrusel">
+            <div class="box" id="box-combos"></div>
+            <a class="switchLeft sliderButton" onclick="sliderScrollLeft('box-combos')"><img src="../resources/images/iconos/previousPink.png" alt="anterior"></a>
+            <a class="switchRight sliderButton" onclick="sliderScrollRight('box-combos')"><img src="../resources/images/iconos/nextPink.png" alt="siguiente"></a>
+        </div>
+    </div>
+
+    <hr class="et1">
+
+    <!-- productos -->
+    <div class = "tz-gallery">
+        <h2 class="inicio_encabezado_producto">PRODUCTOS</h2>
+        <div class="carrusel">
+            <div class="box" id="box-productos"></div>
+            <a class="switchLeft sliderButton" onclick="sliderScrollLeft('box-productos')"><img src="../resources/images/iconos/previousBlue.png" alt="anterior"></a>
+            <a class="switchRight sliderButton" onclick="sliderScrollRight('box-productos')"><img src="../resources/images/iconos/nextBlue.png" alt="siguiente"></a>
+        </div>
+    </div>
+    <!-- separador -->
+    <hr>
+
+    <!-- personalizacion -->
+    <div class="personalizado">
+        <div class="columna1">
+            <p class="mensaje">
+            ¿No encontraste lo que buscabas?
+            <br>
+            <b>¡Pide ahora tu diseño personalizado!</b>
+            </p>
+            <h2 class="escribenos">Escríbenos :)</h2>
+            <span class="escribenos_img">
+                <a id="enlace-wsp3" target="_blank"><img src="..\resources\images\otros\brownWSP.svg" alt="WhatsApp"></a>
+                <a id="enlace-ig3" target="_blank"><img src="..\resources\images\otros\brownIG.svg" alt="Instagram"></a>
+            </span>
+            
+        </div>
+        <div class="columna2">
+            <img src="..\resources\images\otros\contact.svg">
+        </div>  
+    </div>
+   
+    <!-- Pie de pagina -->
+    <div class="footer">
+        <div class="visitanos">
+            <h2>Visítanos</h2>
+            <p>
+                Nicaragua No 105
+                <br>
+                Sucre - Bolivia 
+            </p>
+           
+        </div> 
+        <img class="map" src="..\resources\images\otros\map.svg">
+        <div class="contactanos">
+            <h2>Contáctanos</h2>
+            <div class="row_img">
+                <div class="column">
+                    <a id="enlace-fb" target="_blank" ><img class="_facebook" src="..\resources\images\redes\facebook.svg"></a>
+                    <a id="enlace-correo" target="_blank"><img src="..\resources\images\redes\email.svg"></a>
+                </div>
+                <div class="column">
+                    <a id="enlace-wsp" target="_blank"><img src="..\resources\images\redes\blackWSP.svg"></a>
+                    <a id="enlace-ig" target="_blank"><img src="..\resources\images\redes\blackIG.svg"></a>
+                </div>
+            </div>      
+        </div>
+        <img class= "logoOF" src="..\resources\images\otros\logoOF.png">
+    </div>    
+</div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+
+    <!-- Barras laterales -->
+    <!-- Menu -->
+    <div class="offcanvas offcanvas-start barra-lateral" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"></h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <br><hr><br>
+        <div class="offcanvas-body">
+            <ul><img src="../resources/images/inicio/menuInicio.png" alt="inicio"> Inicio</ul>
+            <ul><img src="../resources/images/inicio/menuLineas.png" alt="lineas"> Líneas</ul>
+            <ul><img src="../resources/images/inicio/menuCombos.png" alt="combos"> Combos</ul>
+            <ul><img src="../resources/images/inicio/menuTodosP.png" alt="productos"> Todos los productos</ul>
+            <ul><img src="../resources/images/inicio/menuProdP.png" alt="personalizado"> Productos personalizados</ul>
+            <ul><img src="../resources/images/inicio/menuContacto.png" alt="contacto"> Contacto</ul>
+        </div>
+        <hr>
+    </div>
+    <!-- Carrito -->
+    <div class="offcanvas offcanvas-end barra-lateral" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Carrito</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Productos del carrito -->
+            <div id="productos-carrito"></div>
+            <h5>Total: $$$</h5>
+            <button>Ver carrito</button>
+            <button>Finalizar compra</button>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+
+</html>

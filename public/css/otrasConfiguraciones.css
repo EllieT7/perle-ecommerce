@@ -1,0 +1,565 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    color:#62766e;
+    font-size: 250%;
+}
+h2 {
+    color:#616161;
+    font-size: 155%;
+}
+h5 {
+    color:#616161;
+}
+#contenido {
+    font-family: 'Urbanist',sans-serif;
+    margin: 2%;
+    display: grid;
+    gap: 1% 2%;
+    grid-template-columns: 7% 16% 48% 20%;
+    grid-template-rows: repeat(19, auto);
+    grid-template-areas: "encabezado encabezado encabezado encabezado"
+                         "boton tituloPerfil tituloPerfil fotoPerfil"
+                         "boton usuario cuadro1 fotoPerfil"
+                         "boton nombre cuadro2 fotoPerfil"
+                         "boton correo cuadro3 fotoPerfil"
+                         "boton contrasena contrasena fotoPerfil"
+                         "boton linea1 linea1 linea1"
+                         "boton tituloContacto tituloContacto tituloContacto"
+                         "boton instagram cuadro4 fotoContacto"
+                         "boton wsp cuadro5 fotoContacto"
+                         "boton facebook cuadro6 fotoContacto"
+                         "boton telefono cuadro7 fotoContacto"
+                         "boton email cuadro8 fotoContacto"
+                         "boton linea2 linea2 linea2"
+                         "boton tituloPrecio tituloPrecio tituloPrecio"
+                         "boton seccionDepto seccionDepto seccionDepto"
+                         "boton linea3 linea3 linea3"
+                         "boton tituloAdmi tituloAdmi agregarAdmi"
+                         "boton administrador administrador administrador";
+}
+/*Contenido parte 1*/
+.encabezado .botonAtras, .modal-header .boton {
+    position:flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #e1ede7;
+    margin-right: 2%;
+}
+.encabezado {
+    grid-area: encabezado;
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 2%;
+}
+.titulo_perfil {
+    grid-area: tituloPerfil;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+.imagen_perfil {
+    grid-area: fotoPerfil;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imagen_perfil img {
+    width: 90%;
+}
+.opcion_user .editar_usuario, .opcion_name .editar_nombre, .opcion_correo .editar_correo{
+    margin-left: 2%;
+    margin-right: 0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #d4d7d9;
+}
+.titulo_user, .opcion_user, .titulo_name, .opcion_name, .titulo_correo, .opcion_correo {
+    display: flex;
+    align-items: center;
+}
+.opcion_user input, .opcion_name input, .opcion_correo input{
+    font-family: 'Urbanist',sans-serif;
+    font-size: 95%;
+    padding: 0% 1%;
+    width: 88%;
+    height: 4vh;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    outline: 0px;
+}
+.boton_contrasena .open{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #eecabd;
+    color: white;
+    width: 18vw;
+    border-radius: 3px;
+    min-width: 200px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 1% 3%;
+}
+.open img {
+    margin-left: 1vw;
+}
+.titulo_user {
+    grid-area: usuario;
+}
+.opcion_user {
+    grid-area: cuadro1;
+}
+.titulo_name {
+    grid-area: nombre;
+}
+.opcion_name {
+    grid-area: cuadro2;
+}
+.titulo_correo {
+    grid-area: correo;
+}
+.opcion_correo {
+    grid-area: cuadro3;
+}
+.boton_contrasena {
+    margin-top: 2%;
+    grid-area: contrasena;
+}
+.linea1 {
+    grid-area: linea1;
+}
+
+/*Pantalla contraseña*/
+.modal-header, .modal-footer {
+    border-width: 0 !important;
+}
+.modal-header{
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.modal-header .boton {
+    width: 44px;
+    height: 44px;
+    background-color: #ededed;
+    margin-right: 20px;
+}
+.modal-header .boton img{
+    width: 22px;
+}
+.modal-title{
+    font-family: 'Urbanist', sans-serif !important;
+    color: #616161;
+    font-size: 22px;
+    font-weight: 550;
+}
+.input_ActualPassw, .input_NewPassw {
+    font-family: 'Urbanist',sans-serif;
+    font-size: 95%;
+    padding: 0% 1%;
+    width: 88%;
+    height: 4vh;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    outline: 0px;
+}
+.btn_actual, .btn_nuevo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #eecabd;
+    color: white;
+    width: 4vh;
+    height: 4vh;
+}
+.imagen_pp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imagen_pp img {
+    margin: 1vh;
+}
+.btn_cancelar1, .btn_cancelar2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #f59898;
+    color: white;
+    width: 12vw;
+    border-radius: 3px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 0.5% 2%;
+    gap: 3%;
+    position: absolute;
+    left: 30px;
+}
+.btn_cancelar1:hover, .btn_cancelar2:hover {
+    background-color: #ef5350;
+}
+.btn_guardar1, .btn_guardar2 {
+    margin-right: 25px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #dbd695;
+    color: white;
+    width: 15vw;
+    border-radius: 3px;
+    min-width: 200px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 0.5% 2%;
+    gap: 3%;
+}
+.btn_guardar1:hover, .btn_guardar2:hover {
+    background: #d7b26c;
+}
+
+/*Contenido parte 2*/
+.titulo_contacto {
+    grid-area: tituloContacto;
+    margin-bottom: 1%;
+}
+.titulo_ig, .titulo_wsp, .titulo_fb, .titulo_tel, .titulo_email {
+    display: flex;
+    align-items: center;
+}
+.titulo_ig {
+    margin-left: 18%;
+    grid-area: instagram;
+}
+.titulo_ig label {
+    margin-left: 10%;
+}
+.titulo_wsp {
+    margin-left: 18%;
+    grid-area: wsp;
+}
+.titulo_wsp label {
+    margin-left: 10%;
+}
+.titulo_fb {
+    margin-left: 19.5%;
+    grid-area: facebook;
+}
+.titulo_fb label {
+    margin-left: 14%;
+}
+.titulo_tel {
+    margin-left: 16%;
+    grid-area: telefono;
+}
+.titulo_tel label {
+    margin-left: 9%;
+}
+.titulo_email {
+    margin-left: 17.5%;
+    grid-area: email;
+}
+.titulo_email label {
+    margin-left: 11%;
+}
+.opcion_ig input, .opcion_wsp input, .opcion_fb input, .opcion_tel input, .opcion_email input {
+    font-family: 'Urbanist',sans-serif;
+    padding: 0% 1%;
+    width: 88%;
+    height: 4vh;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    outline: 0px;
+}
+.opcion_ig .editar_ig, .opcion_wsp .editar_wsp, .opcion_fb .editar_fb, .opcion_tel .editar_tel, .opcion_email .editar_email {
+    margin-left: 2%;
+    margin-right: 0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #d4d7d9;
+}
+.titulo_ig, .opcion_ig, .titulo_wsp, .opcion_wsp, .titulo_fb, .opcion_fb, .titulo_tel, .opcion_tel, .titulo_email, .opcion_email {
+    display: flex;
+    align-items: center;
+}
+.opcion_ig {
+    grid-area: cuadro4;
+}
+.opcion_wsp {
+    grid-area: cuadro5;
+}
+.opcion_fb {
+    grid-area: cuadro6;
+}
+.opcion_tel {
+    grid-area: cuadro7;
+}
+.opcion_email {
+    grid-area: cuadro8;
+}
+.imagen_contacto {
+    grid-area: fotoContacto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imagen_contacto img {
+    width: 74%;
+}
+.linea2 {
+    margin-top: 2%;
+    grid-area: linea2;
+}
+/*Contenido parte 3*/
+.departamento_seccion {
+    grid-area: seccionDepto;
+    display: grid;
+    margin-left: 10%;
+    margin-right: 10%;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "fotoDepto select";
+}
+.titulo_precio {
+    grid-area: tituloPrecio;
+}
+.imagen_depto {
+    grid-area: fotoDepto;
+    display: flex;
+    justify-content: center;
+}
+.imagen_depto img {
+    width: 70%;
+}
+.configuracion_precio {
+    grid-area: select;
+    margin-top: 13%;
+}
+.deptos select {
+    width: 70%;
+    font-family: 'Urbanist',sans-serif;
+    font-size: 90%;
+    padding: 0% 1%;
+    height: 4vh;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    outline: 0px;
+}
+.precio .editar_price {
+    margin-left: 4%;
+    margin-right: 0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #d4d7d9;
+}
+.precio input {
+    margin-left: 2%;
+    margin-right: 2%;
+    font-family: 'Urbanist',sans-serif;
+    font-size: 90%;
+    padding: 0% 1%;
+    width: 25%;
+    height: 4vh;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    outline: 0px;
+}
+.precio {
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+}
+.linea3 {
+    margin-top: 2%;
+    grid-area: linea3;
+}
+/*Contenido parte 4*/
+.titulo_admis {
+    grid-area: tituloAdmi;
+}
+.boton_agregarAdmi {
+    display: flex;
+    justify-content: end;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    grid-area: agregarAdmi;
+}
+.configuracion_administradores {
+    grid-area: administrador;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "listaAdmi fotoAdmi";
+}
+.agregar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #eecabd;
+    color: white;
+    width: 18vw;
+    border-radius: 3px;
+    min-width: 200px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 1% 1%;
+}
+.agregar img {
+    margin-left: 0.5vw;
+}
+.imagen_admis {
+    grid-area: fotoAdmi;
+    display: flex;
+    justify-content: center;
+}
+.imagen_admis img {
+    width: 80%;
+}
+.administradores {
+    grid-area: listaAdmi;
+}
+.accordion-button:not(.collapsed) {
+    color: #6c7075 !important;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #edf0f1 !important;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+    position: relative;
+}
+
+
+/*Pantalla agregar administrador*/
+.nombreCompleto, .nombreUsuario, .correoElect {
+    font-family: 'Urbanist',sans-serif;
+    padding: 0% 1%;
+    width: 100%;
+    height: 4vh;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    outline: 0px;
+}
+.passwE, .passwC {
+    font-family: 'Urbanist',sans-serif;
+    padding: 0% 1%;
+    width: 94%;
+    height: 4vh;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    outline: 0px;
+}
+#form2 .imagen_passw {
+    width: 90%;
+}
+
+.btn_nuevo:hover, .btn_actual:hover, .open:hover, .agregar:hover {
+    background: palevioletred;
+}
+
+@media screen and (max-width: 933px){
+    #contenido {
+        margin: 2%;
+        display: grid;
+        gap: 0.2% 2%;
+        grid-template-columns: 7% 55% 30%;
+        grid-template-rows: repeat(27, auto);
+        grid-template-areas: "encabezado encabezado encabezado"
+                             "boton tituloPerfil fotoPerfil"
+                             "boton usuario fotoPerfil"
+                             "boton cuadro1 fotoPerfil"
+                             "boton nombre fotoPerfil"
+                             "boton cuadro2 fotoPerfil"
+                             "boton correo fotoPerfil"
+                             "boton cuadro3 fotoPerfil"
+                             "boton contrasena fotoPerfil"
+                             "boton linea1 linea1"
+                             "boton tituloContacto tituloContacto"
+                             "boton instagram fotoContacto"
+                             "boton cuadro4 fotoContacto"
+                             "boton wsp fotoContacto"
+                             "boton cuadro5 fotoContacto"
+                             "boton facebook fotoContacto"
+                             "boton cuadro6 fotoContacto"
+                             "boton telefono fotoContacto"
+                             "boton cuadro7 fotoContacto"
+                             "boton email fotoContacto"
+                             "boton cuadro8 fotoContacto"
+                             "boton linea2 linea2"
+                             "boton tituloPrecio tituloPrecio"
+                             "boton seccionDepto seccionDepto"
+                             "boton linea3 linea3"
+                             "boton tituloAdmi agregarAdmi"
+                             "boton administrador administrador";
+    }
+}
+@media screen and (max-width: 658px){
+    .departamento_seccion {
+        grid-area: seccionDepto;
+        display: grid;
+        margin-left: 2%;
+        margin-right: 2%;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: repeat(1, auto);
+        grid-template-areas: "fotoDepto select";
+    }
+}
+@media screen and (max-width: 553px){
+    .departamento_seccion {
+        grid-area: seccionDepto;
+        display: grid;
+        margin-left: 5%;
+        margin-right: 5%;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: "fotoDepto"
+                             "select";
+    }
+    .imagen_depto img {
+        width: 50%;
+    }
+    .configuracion_administradores {
+        grid-area: administrador;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: "fotoAdmi"
+                             "listaAdmi";
+    }
+    .imagen_admis img {
+        width: 50%;
+    }
+    
+}

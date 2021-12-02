@@ -1,0 +1,552 @@
+*{
+    font-family: 'Urbanist';
+}
+/* Encabezado */
+.encabezado{
+    background-color: #ede9e1;
+    width: 100vw;
+    height: 5vh;
+    position: fixed;
+    top: 0%;
+    z-index: 100;
+}
+.encabezado img{
+    width: 5vh;
+}
+
+.encabezado ._carrito{
+    margin-right: 3vh;
+    position: absolute;
+    right: 0;
+}
+
+/* Ruta */
+
+.ruta{
+    display: inline-flex;
+    margin-top: 80px;
+    margin-left: 50px;
+    font-family: 'Urbanist';
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.ruta .breadcrumb{
+    margin-left: 30px;
+}
+.ruta .boton{
+    margin-top: 5px;
+    position:flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #e1ede7;
+}
+.ruta .boton img{
+    width: 35px;
+    margin-top: -15px;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
+    font-weight: 600;
+}
+.breadcrumb img{
+    width: 70px;
+}
+
+/* Distribucion del contenido*/
+.titulo-informacion, .titulo-metodo{
+    margin-left: 150px;
+    color: #7e968a;
+    font-weight: 600;
+    font-size: 24px;
+}
+.contenido{
+    position: relative;
+    display: grid;
+    grid-template-rows: 400px 40vw;
+    grid-template-columns: repeat(2,auto);
+    grid-template-areas: "info-cliente info-pedido"
+                         "info-metodo info-pedido";
+    
+}
+
+.informacion-cliente{
+    grid-area: info-cliente;
+}
+.informacion-pedido{
+    grid-area: info-pedido;
+    border-left: #cecece;
+    border-width: 0px 0px 0px 1px;
+    border-style: solid;
+}
+.metodo-pago{
+    grid-area: info-metodo;
+}
+
+/* Formulario informacion cliente */
+.formulario-informacion{
+    margin-top: 30px;
+    margin-left: 160px;
+    display: grid;
+    grid-template-columns: 13vw 30vw;
+    grid-template-rows: 35px 35px 35px 35px 35px;
+    grid-gap: 20px;
+    grid-template-areas: "nombre input-nombre"
+                         "celular input-celular"
+                         "correo input-correo"
+                         "ciudad input-ciudad"
+                         "cumple input-cumple";
+}
+.formulario-informacion h4{
+    font-size: 20px;
+    color: #616161;
+}
+.informacion-cliente hr{
+    margin-top: 45px;
+    margin-bottom: 45px;
+    width: 45vw;
+    min-width: 615px;
+    margin-left: 160px;
+}
+.nombre{
+    grid-area: nombre;
+}
+.celular{
+    grid-area: celular;
+}
+.correo{
+    grid-area: correo;
+}
+.ciudad{
+    grid-area: ciudad;
+}
+.cumple{
+    grid-area: cumple;
+}
+#input-nombre{
+    grid-area: input-nombre;
+}
+#input-celular{
+    grid-area: input-celular;
+}
+#input-correo{
+    grid-area: input-correo;
+}
+.comboBox{
+    grid-area: input-ciudad;
+}
+#input-cumple{
+    grid-area: input-cumple;
+}
+#input-nombre, #input-celular, #input-correo, select, #input-cumple{
+    width: 20vw;
+    min-width: 380px;
+    height: 35px;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+}
+#input-CI, #input-direccion{
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    height: 30px;
+}
+/* Metodo de pago */
+.accordion{
+    width: 45vw;
+    min-width: 615px;
+    margin-left: 160px;
+    position: relative;
+    margin-top: 30px;
+}
+
+/* Radio buttons */
+.radioButton{
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    
+}
+input[type='radio']:checked:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 10px;
+    top: 1px;
+    left: 1px;
+    position: relative;
+    background-color: #e6ac9f;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 4px solid white;
+} 
+
+/* opciones */
+.accordion-button:not(.collapsed) {
+    color: #6c7075 !important;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #edf0f1 !important;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+    position: relative;
+}
+#contenido-entregaPersonal, #contenido-transferencia{
+    padding: 30px;
+    position: relative;
+}
+#contenido-entregaPersonal img{
+    top: 10px;
+    width: 150px;
+    position: absolute;
+    right: 0;
+}
+#collapseOne, #collapseTwo, #collapseThree{
+    background-color: #fafafa;
+    color: #616161;
+}
+
+._comprobante img{
+    display: inline;
+    width: 30px;
+    margin-left:10px;
+}
+._comprobante{
+    margin-top: 50px;
+}
+
+/* opcion: transferencia */
+#contenido-transferencia{
+    display: grid;
+    grid-template-columns: 500px 280px;
+    grid-template-rows: repeat(2,auto);
+    grid-template-areas: "informacion imagen"
+                         "extra extra";
+}
+#columna1-transferencia{
+    grid-area: informacion;
+}
+#columna2-transferencia{
+    grid-area: imagen;
+}
+#columna2-transferencia img{
+    width: 230px;
+}
+#fila2-transferencia{
+    margin-top: 30px;
+    display: grid;
+    grid-area: extra;
+    grid-template-columns: 180px 550px;
+    grid-template-rows: 30px 30px;
+    grid-gap: 15px;
+    grid-template-areas: "ci input-ci"
+                         "dir input-dir";
+}
+.CI{
+    margin-top: 5px;
+    grid-area: ci;
+    font-size: 18px;
+}
+.direccion{
+    margin-top: 5px;
+    grid-area: dir;
+    font-size: 18px;
+}
+#input-CI{
+    grid-area: input-ci;
+    width: 11vw;
+    min-width: 150px;
+}
+#input-direccion{
+    grid-area: input-dir;
+    width:20vw;
+    min-width: 250px;
+}
+.nota-transferencia{
+    margin-top: 30px;
+    margin-right: 50px;
+    color: #88a4b8;
+    border-color: #d1d1d1;
+    border-width: 2px;
+    border-style: dashed;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 700;
+    padding: 15px;
+}
+
+.contenedor-informacion{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d1d1d1;
+    border-radius: 4px;
+    width: fit-content;
+    padding: 15px;
+    position: relative;
+    margin-left: 3vw;
+    margin-bottom: 20px;
+}
+.contenedor-informacion h6{
+    font-weight: 700;
+    font-size: 20px;
+}
+.contenedor-informacion p{
+    padding-left: 20px;
+    font-weight: 500;
+}
+.contenedor-informacion img{
+    width: 40px;
+    position: absolute;
+    top:-15px;
+    left: -20px;
+}
+.p-informacion-cuenta{
+    margin: 0;
+}
+.conjunto img{
+    width: 18px;
+}
+#informacion-de-scan{
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 40px;
+}
+#qr-comprobante{
+    margin-top: 80px;
+}
+
+/* Tu pedido */
+.informacion-pedido{
+    position: relative;
+    padding-right: 60px;
+}
+.titulo-pedido{
+    color: #d9a8a3;
+    font-weight: 600;
+    font-size: 35px;
+    margin-left: 30px;
+}
+.informacion-pedido img{
+    width: 100px;
+    position: absolute;
+    right: 90px;
+    top: -50px;
+}
+.contenido-pedido{ 
+    background-color: #f3f3f3;
+    border-color: white;
+    min-height: 400px;
+    min-width: 470px;
+    border-style: dashed;
+    border-width: 4px;
+    border-radius: 6px;
+    width: 35vw;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+#totales-pedido{
+    padding: 30px;
+    color: #616161;
+    font-size: 28px;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    grid-template-rows: repeat(6,auto);
+    grid-template-areas: "subtotal dato-subtotal"
+                         "envio dato-envio"
+                         "separador separador"
+                         "total dato-total"
+                         "tiempo-espera tiempo-espera"
+                         "vacio boton";
+}
+#subtotal{
+    grid-area: subtotal;
+}
+#c-envio{
+    grid-area: envio;
+}
+#dato-subtotal{
+    text-align: right;
+    grid-area: dato-subtotal;
+}
+#dato-envio{
+    grid-area: dato-envio;
+    text-align: right;
+}
+#separador{
+    grid-area: separador;
+}
+#total{
+    grid-area: total;
+    font-weight: 700;
+}
+#dato-total{
+    grid-area: dato-total;
+    text-align: right;
+    font-weight: 700;
+}
+/* Tiempo de espera */
+#tiempo-espera{
+    margin-top: 20px;
+    grid-area: tiempo-espera;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    border-color: #d1d1d1;
+    border-style: dotted;
+    border-width: 2px;
+    padding: 15px;
+}
+#tiempo-espera h6{
+    font-size: 21px;
+    color: #7E968A;
+    font-weight: 600;
+}
+#tiempo-espera p{
+    font-size: 17px;
+    color: #9C757B;
+    font-weight: 600;
+}
+.vacio{
+    grid-area: vacio;
+}
+/* Boton finalizar pedido */
+#btn-realizar-pedido img{
+    width: 20px;
+    margin-top: 65px;
+    position: absolute;
+    right: 50px;
+}
+.contenido{
+    margin-bottom: 100px;
+}
+#btn-realizar-pedido{
+    padding: 10px;
+    position: relative;
+    width: 280px;
+    height: 50px;
+    background-color: #eecabd;
+    color: white;
+    border-radius: 4px;
+    border-width: 0;
+    grid-area: boton;
+    justify-self: end;
+    margin-top: 10%;
+}
+#btn-realizar-pedido h6{
+    margin-top: 10px;
+    position: absolute;
+    left: 20px;
+    top: 5px;
+    margin-left: 30px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
+
+
+/* Modificaciones de pantalla */
+@media screen and (max-width: 1760px ){
+    #contenido-transferencia{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3,auto) ;
+        grid-template-areas: "informacion"
+                             "imagen"
+                             "extra";
+        padding: 10px;
+    }
+    .contenedor-informacion{
+        margin: 0 auto;
+    }
+    #columna1-transferencia h6{
+        text-align: center;
+    }
+    #columna2-transferencia{
+        text-align: center;
+    }
+    #transferencia-comprobante{
+        font-size: 15px;
+    }
+    .contenido{
+        margin-left: -50px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .formulario-informacion{
+        position: relative;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+        grid-template-areas: "nombre "
+                             "input-nombre"
+                             "celular"
+                             "input-celular"
+                             "correo"
+                             "input-correo"
+                             "ciudad"
+                             "input-ciudad"
+                             "cumple"
+                             "input-cumple";
+    }
+    .contenido{
+        display: grid;
+        grid-template-rows: repeat(2,auto);
+        grid-template-columns: auto 40vw;
+        grid-template-areas: "info-cliente info-pedido"
+                             "info-metodo info-pedido";
+        
+    }  
+}
+@media screen and (max-width: 1300px) {
+    .formulario-informacion{
+        position: relative;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+        grid-template-areas: "nombre "
+                             "input-nombre"
+                             "celular"
+                             "input-celular"
+                             "correo"
+                             "input-correo"
+                             "ciudad"
+                             "input-ciudad"
+                             "cumple"
+                             "input-cumple";
+    }
+    .contenido{
+        display: grid;
+        grid-template-rows: repeat(3,auto);
+        grid-template-columns: 100%;
+        grid-template-areas: "info-cliente"
+                             "info-metodo"
+                             "info-pedido";   
+    }
+    .informacion-pedido{
+        position: relative;
+        padding: 0;
+        width: fit-content;
+        margin-left: 150px;
+        border-width: 0;
+    }
+}
+#tabla-contenido{
+    position: relative;
+    margin: 0;
+    width: 100%;
+}
+tr{
+    display: inline-flexbox;
+}
+.contenido-pedido{
+    padding: 30px;
+}

@@ -1,0 +1,115 @@
+/*CSS es un lenguaje de hojas de estilo, no es un lenguaje de programación,
+nos permite controlar el aspecto y presentación de los elementos que tiene 
+cada elemento de un sitio web.*/
+* {
+    margin: 0;
+    padding: 0;
+}
+.contenido {
+    margin: 2%;
+    display: grid;
+    gap: 2%;
+    grid-template-columns: 32% 32% 32%;
+    grid-template-rows: 20% 33% 33%;
+    grid-template-areas: "titulo titulo titulo"
+                         "producto linea perle"
+                         "pedido otras perle";
+}
+h1 {
+    color:#62766e;
+    font-family: 'Urbanist', sans-serif;
+    font-size:200%;
+}
+h2 {
+    color:#5e5958;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 120%;
+    margin-top: 2.5%;
+    margin-bottom: 1%;
+}
+h3 {
+    color:#141414;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 100%;
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+}
+p {
+   color:#616161; 
+   font-family: 'IBM Plex Sans', sans-serif;
+   font-size: 80%;
+   margin-bottom: 6%;
+}
+.perle img {
+    width: 95%;
+}
+.productos div{
+    background: #f5eceb;
+    border-radius: 10px;
+    text-align: center;
+}
+.lineasCombos div{
+    background: #e1ede7;
+    border-radius: 10px;
+    text-align: center;
+}
+.pedidos div{
+    background: #faf4eb;
+    border-radius: 10px;
+    text-align: center;
+}
+.otrasConfiguraciones div{
+    background: #f3f3f3;
+    border-radius: 10px;
+    text-align: center;
+}
+.productos div:hover {
+    background: #e5b3fe;
+}
+.lineasCombos div:hover {
+    background: #b3e5fc;
+}
+.pedidos div:hover {
+    background:pink;
+}
+.otrasConfiguraciones div:hover {
+    background:#c6c6c6;
+}
+.productos img, .lineasCombos img, .pedidos img, .otrasConfiguraciones img{
+    margin: 2%;
+    width: 30%;
+}
+.header {
+    margin-top: 2%;
+    grid-area: titulo;
+}
+.productos {
+    grid-area: producto;
+}
+.lineasCombos {
+    grid-area: linea;
+}
+.pedidos {
+    grid-area: pedido;
+}
+.otrasConfiguraciones {
+    grid-area: otras;
+}
+.perle {
+    grid-area: perle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px){
+    .contenido {
+        grid-template-columns: 64% 30%;
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: "titulo titulo"
+                             "producto perle"
+                             "linea perle"
+                             "pedido perle"
+                             "otras perle";
+    }
+}

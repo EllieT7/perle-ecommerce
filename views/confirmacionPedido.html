@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación Pedido</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../public/resources/images/otros/ico_perle.ico">
+    <link rel="stylesheet" href="..\public\css\confirmacionPedido.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- encabezado -->
+    <div class = "encabezado">
+        <img class="_menu" src="..\public\resources\images\otros\menu.svg">
+        <a href="carrito.html"><img class="_carrito" src="..\public\resources\images\otros\carrito.svg"></a>
+        
+    </div>
+    <!-- Ruta -->
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="ruta">
+        <button class="boton">
+            <a href="carrito.html">
+                <img src="..\public\resources\images\otros\greenBack.svg" alt="atrás">
+            </a>
+        </button>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" etiqueta="inicio"><a href="carrito.html" style="color: #62766E;">Carrito</a></li>
+            <li class="breadcrumb-item active" aria-current="page" >
+                <img src="../public/resources/images/otros/confirmacionPedido.png" alt="pedido">
+                Confirmación de pedido
+            </li>
+        </ol>
+    </nav>
+    <!-- Contenido -->
+    <div class="contenido">
+        <!-- Informacion del cliente -->
+        <div class="informacion-cliente">
+            <h4 class="titulo-informacion">Por favor llena la siguiente información para proceder con tu pedido</h4>
+            <div class="formulario-informacion">
+                <h4 class="nombre">Nombre Completo:</h4>
+                <h4 class="celular">Celular:</h4>
+                <h4 class="correo">Correo:</h4>
+                <h4 class="ciudad">Ciudad:</h4>
+                <h4 class="cumple">Fecha de cumpleaños:</h4>
+                <input type="text" name="input-nombre" id="input-nombre">
+                <input type="text" name="input-celular" id="input-celular">
+                <input type="email" name="input-correo" id="input-correo">
+                <div class="comboBox">
+                    <select name="departamento" onchange="actualizarEnvio(this.value)" id="ptm">
+                        <option value="4" selected="true">Beni</option>
+                        <option value="2" >Chuquisaca</option>
+                        <option value="3">Cochabamba</option>
+                        <option value="1">La Paz</option>
+                        <option value="5">Oruro</option>
+                        <option value="6">Pando</option>
+                        <option value="7">Potosí</option>
+                        <option value="8">Santa Cruz</option>
+                        <option value="9">Tarija</option>
+                    </select>
+                </div>
+                <input type="date" name="input-cumple" id="input-cumple">
+            </div>
+            <hr>
+        </div>
+        <!-- Metodo de pago -->
+        <div class="metodo-pago">
+            
+            <h4 class="titulo-metodo">Seleccione el método de pago</h4>
+            <!-- opciones -->
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <input class="radioButton" type="radio" name="exampleRadios" id="radio1" value="option1">
+                        Entrega personal (Sólo válido para Sucre)
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div id="contenido-entregaPersonal">
+                            <h5>Para recoger tu pedido visítanos en:</h5>
+                            <p>Nicaragua No 105 <br> Sucre-Bolivia</p>
+                            <a href="https://mail.google.com/">
+                                <img src="../public/resources/images/otros/map.svg" alt="ubicación">
+                            </a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <input class="radioButton" type="radio" name="exampleRadios" id="radio2" value="option2">
+                        Depósito o transferencia bancaria
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div id="contenido-transferencia">
+                            <div id="columna1-transferencia">
+                                <div id="informacion-de-la-cuenta" class="contenedor-informacion">
+                                    <img src="../public/resources/images/otros/info.png" alt="info">
+                                    <h6>Información de la cuenta</h6>
+                                    <p class="p-informacion-cuenta">
+                                        Banco Nacional de Bolivia (BNB) <br>
+                                        Cta.: 4501044917 <br>
+                                        Pamela Bracamonte Jerez <br>
+                                        CI: 7563711 Ch <br>
+                                        Caja de ahorros <br>
+                                        Sucre - Bolivia 
+                                    </p>
+                                </div>
+                                <h6 id="transferencia-comprobante" class="_comprobante">
+                                    Manda tu comprobante por alguno de estos medios:
+                                    <a href=""><img src="../public/resources/images/otros/redes/greenWSP.svg" alt=""></a>
+                                    <a href=""><img src="../public/resources/images/otros/redes/pinkMail.svg" alt=""></a>
+                                </h6>
+                            </div>
+                            <div id="columna2-transferencia">
+                                <img src="../public/resources/images/otros/transferencia.svg" alt="transferencia">
+                                <div class="nota-transferencia">
+                                    Debes realizar el pago y enviar el comprobante en 24 horas o tu pedido será cancelado.
+                                </div>
+                            </div>
+                            <div id="fila2-transferencia">
+                                <div class="conjunto">
+                                    <input type="text" name="input-CI" id="input-CI">
+                                    <input type="checkbox">
+                                    <label for="checkbox">Currier</label>
+                                    <img src="../public/resources/images/otros/pinkInfo.svg" alt="info" >
+                                </div>
+                                <h4 class="CI">Carnet de identidad:</h4>
+                                <h4 class="direccion">Dirección exacta:</h4>
+                                
+                                <input type="text" name="input-direccion" id="input-direccion">
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                       <input class="radioButton" type="radio" name="exampleRadios" id="radio3" value="option3">
+                        Pago QR
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div id="contenido-transferencia">
+                            <div id="columna1-transferencia">
+                                <div id="informacion-de-scan" class="contenedor-informacion">
+                                    <img src="../public/resources/images/otros/scan.png" alt="info">
+                                    <h6>Escanea el código QR para realizar la transferencia</h6>
+                                    <p class="p-informacion-cuenta">
+                                        Una vez hayas realizado el pago de tu pedido, envíanos una <strong>foto o captura de pantalla</strong> del comprobante.
+                                    </p>
+                                </div>
+                                <h6 id="qr-comprobante" class="_comprobante">
+                                    Manda tu comprobante por alguno de estos medios:
+                                    <a href=""><img src="../public/resources/images/otros/redes/greenWSP.svg" alt=""></a>
+                                    <a href=""><img src="../public/resources/images/otros/redes/pinkMail.svg" alt=""></a>
+                                </h6>
+                            </div>
+                            <div id="columna2-transferencia">
+                                <img src="../public/resources/images/otros/qrFalso.png" alt="transferencia">
+                                <div class="nota-transferencia">
+                                    Debes realizar el pago y enviar el comprobante en 24 horas o tu pedido será cancelado.
+                                </div>
+                            </div>
+                            <div id="fila2-transferencia">
+                                <div class="conjunto">
+                                    <input type="text" name="input-CI" id="input-CI">
+                                    <input type="checkbox">
+                                    <label for="checkbox">Currier</label>
+                                    <img src="../public/resources/images/otros/pinkInfo.svg" alt="info" >
+                                </div>
+                                <h4 class="CI">Carnet de identidad:</h4>
+                                <h4 class="direccion">Dirección exacta:</h4>
+                                
+                                <input type="text" name="input-direccion" id="input-direccion">
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <br> 
+            </div>
+        </div>
+        
+        <!-- Tu pedido -->
+        <div class="informacion-pedido">
+            <h4 class="titulo-pedido">Tu pedido</h4>
+            <img src="../public/resources/images/otros/pedido.png" alt="pedido">
+            <div class="contenido-pedido">
+                <table class="default" id="tabla-contenido"></table> 
+            </div>
+            <div id="totales-pedido">
+                <h4 id="subtotal">Subtotal:</h4>
+                <h4 id="c-envio">Costo de envío:</h4>
+                <h4 id="dato-subtotal">$$</h4>
+                <h4 id="dato-envio">$$</h4>
+                <hr id="separador"> 
+                <h4 id="total">Total a pagar:</h4>
+                <h4 id="dato-total">$$</h4>
+                <div id="tiempo-espera">
+                    <h6>Tiempo de entrega esperado: 5 días</h6>
+                    <p>
+                        *Los tiempos de entrega pueden variar, se le comunicará en ese caso*
+                    </p>
+                    
+                </div> 
+                <button id="btn-realizar-pedido" onclick="Cliente()"> 
+                    <h6>Realizar el pedido</h6>
+                    <img src="../public/resources/images/otros/finalizar-compra.png" alt="finalizar compra"> 
+                </button> 
+            </div>
+            
+               
+        </div>
+        <!-- Boton realizar pedido -->   
+                
+            
+            
+    </div>
+    <script type="text/javascript" src="..\public\js\confirmacionPedido.js"></script> 
+</body>
+</html>

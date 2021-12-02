@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(https://scontent.flpb2-1.fna.fbcdn.net/v/t1.6435-9/164915345_272596937824193_4241821565215277709_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=m6jlWmGgcWoAX_7is9J&tn=6rV-XxMa5w_Dmhy0&_nc_ht=scontent.flpb2-1.fna&oh=5a85ed02cd28e7f792d68b0ecb926635&oe=61C8ADE2)
+    no-repeat center center fixed;
+    width: 100%;
+
+}
+body{
+    width: 0%;
+    margin: 0%;
+    color: black;
+    font-family: cursive;
+    
+}
+
+.g_id_signin{
+    width: 40%;
+    margin: 0%;
+    background:mintcream;
+    padding: 100px;
+}
+.Perle{
+    width: 500px;       
+    height: 500px;
+    position: absolute;
+    top:50%;
+    left: 50%;           
+    margin-top: -0px;
+    margin-left: -200px; 
+    
+}
+h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px; 
+}
+

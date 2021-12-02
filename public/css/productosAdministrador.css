@@ -1,0 +1,482 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*Características generales*/
+h1 {
+    color:#62766e;
+    font-size: 250%;
+}
+h5 {
+    color:#616161;
+}
+#contenido {
+    font-family: 'Urbanist',sans-serif;
+    margin: 3%;
+}
+.encabezado .botonAtras, .modal-header .boton {
+    position: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #e1ede7;
+}
+.encabezado {
+    grid-area: encabezado;
+    display: flex;
+    align-items: center;
+    gap: 2%;
+}
+.btn_agregarProducto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #eecabd;
+    color: white;
+    width: 15vw;
+    border-radius: 3px;
+    min-width: 200px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 2% 2%;
+    gap: 3%;
+}
+.btn_agregarProducto:hover {
+    background: palevioletred;
+}
+.botonAgregar {
+    margin-top: 1.3%;
+    float: right;
+}
+.buscar {
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+.buscar input {
+    margin-left: 2%;
+    font-family: 'Urbanist',sans-serif;
+    font-size: 90%;
+    padding: 0% 1%;
+    width: 35%;
+    height: 4vh;
+    background: #f3f3f3;
+    border-width: 0px;
+    outline: 0px;
+    border-radius: 10px;
+}
+.todosProductos {
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 2%;
+}
+
+/*Pantalla agregar producto*/
+.modal-header, .modal-footer {
+    border-width: 0 !important;
+}
+
+/*header: titulo*/
+.modal-header {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.modal-header .boton {
+    width: 44px;
+    height: 44px;
+    background-color: #ededed;
+    margin-right: 20px;
+}
+.modal-header .boton img {
+    width: 22px;
+}
+.modal-title{
+    font-family: 'Urbanist', sans-serif !important;
+    color: #616161;
+    font-size: 22px;
+    font-weight: 550;
+}
+
+/*Contenido*/
+.contenido-body {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-column-gap: 30px;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "img contenido";
+    padding-left: 20px;
+    padding-right: 45px;
+}
+.contenido-body-img {
+    margin-top: 15px;
+    grid-area: img;
+    position: relative;
+}
+.contenido-body-img img {
+    width: 100%;
+}
+/*.boton-agregar-imagen img, .boton-editar-imagen img {
+    width: 20px;
+    text-align: center;
+}
+.boton-agregar-imagen, .boton-editar-imagen {
+    border-width: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:5px;
+    right: 40px;
+}*/
+.contenido-body-2 {
+    grid-area: contenido;
+}
+
+/*Grid para el formulario*/
+.formulario{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(7,auto);
+    grid-template-areas: "nombre"
+                         "tipo"
+                         "linea"
+                         "precio"
+                         "descripcion"
+                         "tiempo"
+                         "etiqueta";
+    grid-row-gap: 5px;
+}
+/*Formulario agregar*/
+#grupo__nombre, #grupo__tipo, #grupo__lineas, #grupo__precio, #grupo__etiquetas {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "label input";
+}
+#grupo__nombre label, #grupo__tipo label, #grupo__lineas label, #grupo__precio label, #grupo__etiquetas label {
+    grid-area: label;
+}
+#grupo__nombre .formulario__grupo-input, #grupo__tipo select, #grupo__lineas select, #grupo__precio .formulario__grupo-input, #grupo__etiquetas select{
+    grid-area: input;
+}
+/*Formulario editar*/
+#grupo__nombre-editar, #grupo__tipo-editar, #grupo__lineas-editar, #grupo__precio-editar, #grupo__etiquetas-editar {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "label input";
+}
+#grupo__nombre-editar label, #grupo__tipo-editar label, #grupo__lineas-editar label, #grupo__precio-editar label, #grupo__etiquetas-editar label {
+    grid-area: label;
+}
+#grupo__nombre-editar .formulario__grupo-input, #grupo__tipo-editar select, #grupo__lineas-editar select, #grupo__precio-editar .formulario__grupo-input, #grupo__etiquetas-editar select{
+    grid-area: input;
+}
+
+/*Caracteristicas del formulario*/
+.botonAgregar {
+    font-family: 'Urbanist',sans-serif;
+}
+
+.formulario__input, #grupo__tipo select, #grupo__tipo-editar select {
+    font-family: 'Urbanist',sans-serif;
+    font-size: 95%;
+    padding: 0% 3%;
+    width: 100%;
+    height: 4vh;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    outline: 0px;
+    transition: .3s ease all;
+}
+#precio_producto, #precio_producto-editar {
+    width: 90%;
+}
+.formulario textarea {
+    font-family: 'Urbanist',sans-serif;
+    font-size: 95%;
+    padding: 1% 1%;
+    width: 100%;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    outline: 0px;
+}
+.multi_select_etiquetas-editar, .multi_select_etiquetas, .multi_select_lineas, .multi_select_lineas-editar {
+    width: 100% !important;
+}
+.multi_select_etiquetas button, .multi_select_lineas button, .multi_select_lineas-editar button, .multi_select_etiquetas-editar button {
+    font-family: 'Urbanist',sans-serif;
+    background-color: white !important;
+    color: black !important;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    padding: 0% 3% !important;
+    border-radius: 0%;
+    width: 315px !important;
+}
+.formulario__input-error {
+    font-size: 12px;
+    margin-bottom: 0;
+    grid-column: span 2;
+    display: none;
+}
+.formulario__input-error-activo {
+    display: block;
+}
+.formulario__mensaje {
+    grid-column: span 2;
+    margin-top: 2px;
+    height: 40px;
+    line-height: 40px;
+    background: #f66868;
+    padding: 0 15px;
+    display: none;
+}
+.formulario__mensaje-activo {
+    display: block;
+}
+.formulario__mensaje p {
+    margin: 0;
+}
+.formulario__mensaje-confirmacion {
+    grid-column: span 2;
+    margin-top: 2px;
+    height: 40px;
+    line-height: 40px;
+    background: #119200;
+    padding: 0 15px;
+    color: white;
+    display: none;
+}
+.formulario__mensaje-confirmacion-activo {
+    display: block;
+}
+.formulario__mensaje-confirmacion p {
+    margin: 0;
+}
+#grupo__tiempo, #grupo__tiempo-editar {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "label input";
+}
+#grupo__tiempo label, #grupo__tiempo-editar label {
+    grid-area: label;
+}
+#grupo__tiempo input, #grupo__tiempo-editar input {
+    grid-area: input;
+    height: 4vh;
+    color: black;
+    border-color: #d4d7d9;
+    border-style: solid;
+    border-width: 0.2px;
+    border-radius: 0;
+    width: 100%;
+    padding: 0% 3%;
+}
+/*Contenido*/
+@media screen and (max-width: 991px){
+    .contenido-body {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, auto);
+        grid-row-gap: 20px;
+        grid-template-areas: "img"
+                             "contenido";
+        padding-left: 24px;
+        padding-right: 20px;
+    }
+    .contenido-body-img {
+        margin-top: 0;
+        margin-left: 60px;
+        grid-area: img;
+        position: relative;
+    }
+    .contenido-body-img img {
+        width: 85%;
+    }
+    .formulario__mensaje {
+        grid-column: span 1;
+        margin-top: 2px;
+        height: 30px;
+        line-height: 30px;
+        background: #f66868;
+        padding: 0 15px;
+        display: none;
+    }
+    .formulario__mensaje-activo {
+        display: block;
+    }
+}
+/*modal-footer: botones inferiores*/
+.btn_cancelar, .btn_cancelar-editar, .boton-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #f59898;
+    color: white;
+    width: 12vw;
+    border-radius: 3px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 0.5% 2%;
+    gap: 3%;
+    position: absolute;
+    left: 30px;
+}
+.btn_cancelar:hover, .btn_cancelar-editar:hover, .boton-modal:hover {
+    background-color: #ef5350;
+}
+.btn_agregar, .btn_agregar-editar {
+    margin-right: 18px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #dbd695;
+    color: white;
+    width: 15vw;
+    border-radius: 3px;
+    min-width: 200px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 0.5% 2%;
+    gap: 3%;
+}
+.boton-modal-eliminar, .boton-modal-ocultar {
+    margin-right: 22px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #dbd695;
+    color: white;
+    width: 12vw;
+    border-radius: 3px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 0.5% 2%;
+    gap: 3%;
+}
+.btn_agregar:hover, .btn_agregar-editar:hover, .boton-modal-eliminar:hover, .boton-modal-ocultar:hover {
+    background: #d7b26c;
+}
+.btn_cancelar img, .btn_cancelar-editar img, .btn_agregar img, .btn_agregar-editar img, .boton-modal img, .boton-modal-eliminar img, .boton-modal-ocultar img{
+    width: 14px;
+}
+
+/*Cards*/
+.card{
+    position: relative;
+    margin-bottom: 30px;
+    transition: 0.5s;
+    transition: ease-in-out;
+}
+.card h3, .card p {
+    padding: 7px;
+}
+.card:hover {
+    transition: 0.2s ease-in-out;
+    transform: scale(1.02);
+}
+.boton-editar{
+    margin: 5px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #d4d7d9;
+    right: 40px;
+}
+.boton-eliminar {
+    margin-left: 40px;
+    margin-top: 5px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #d4d7d9;
+    right: 8px;
+}
+.boton-ocultar {  
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #d4d7d9;
+    left:8px;
+    bottom: 80px;  
+}
+.boton-ocultar {
+    bottom: 118px; 
+}
+.boton-editar:hover, .boton-eliminar:hover, .boton-ocultar:hover {
+    background-color: #aeb9c0;
+}
+
+/* Cambioos */
+.boton-agregar-imagen img{
+    width: 20px;
+    text-align: center;
+}
+.boton-agregar-imagen{
+    border-width: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:5px;
+    right: 10px;
+}
+input[type=file]{
+    width: 20px;
+    height: 20px;
+    background: transparent;
+}
+input[type=file]::before{
+    content: ' +  ';
+    font-size: 18px;
+    font-weight: 700;
+    color: #616161;
+    cursor: pointer;
+}
+#input-imagen-producto-editar::before{
+    content: '✏';
+    font-size: 20px;
+}
+.imagen-agregar-producto, .imagen-editar-producto{
+    /* width: 300px; */
+    position: relative;
+    height: 300px;
+    background-color: rgb(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* Para la imagen */
+    background-position: center;
+    background-size: cover;
+}
+#lineasDeProductos{
+    outline: none;
+}
+.filter-option{
+    outline: none;
+}

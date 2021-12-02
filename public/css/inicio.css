@@ -1,0 +1,450 @@
+body {
+    min-height: 100vh;
+    font-family: 'Urbanist', sans-serif;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+/* Burbujitas */
+.wrapper{
+    /* Posicion en el eje z, profundidad*/
+    z-index: 1000;
+    /* Posicion fija */
+    position: fixed; 
+    bottom: 10px;
+    display: inline-block;
+  }
+
+.wrapper .icon{
+  margin: 0 20px;
+  margin-top: 10%;
+  cursor:pointer;
+  display:flex;
+  align-items:center; 
+  justify-content:center;
+  flex-direction:column;
+  position: relative;
+  z-index:2;
+}
+
+.wrapper .icon span{
+    position:relative;
+    z-index:2;
+    height: 60px;
+    width: 60px;
+    display:block;
+    background: #fff;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    border-radius:50%;
+    text-align:center;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+.wrapper .icon span i{
+    font-size:25px;
+    line-height:60px;
+}
+
+.wrapper .icon .tooltip{
+    position:absolute;
+    top:0px;
+    background: #fff;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    font-family: 'Urbanist';
+    font-size: 15px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    color:white;
+    opacity:0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+  .wrapper .icon:hover .tooltip{
+    opacity:1;
+    pointer-events: auto;
+    top:-70px;
+  }
+
+  .wrapper .icon .tooltip:before{
+    position:absolute;
+    content:"";
+    height:15px;
+    width:15px;
+    bottom:-8px;
+    left:50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  .wrapper .icon:hover span,
+  .wrapp .icon:hover .tooltip{
+    text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+  }
+  .wrapper .icon:hover span{
+    color: #fff;
+  }
+  .wrapper .facebook:hover span,
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .facebook:hover .tooltip:before{
+    background:#3B5999;
+  }
+  .wrapper .instagram:hover span,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip:before{
+    background:#CA4A69;
+  }
+  .wrapper .whatsapp:hover span,
+  .wrapper .whatsapp:hover .tooltip,
+  .wrapper .whatsapp:hover .tooltip:before{
+    background:#3EBD4E;
+  }
+  .wrapper .tiktok:hover span,
+  .wrapper .tiktok:hover .tooltip,
+  .wrapper .tiktok:hover .tooltip:before{
+    background:black;
+  }
+
+
+  /*Termina burbujitas  */
+
+
+/* imagenes */
+.container.gallery-container {
+    background-color: #fff;
+    color: #35373a;
+    min-height: 100vh;
+    border-radius: 40px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+}
+
+.gallery-container h1 {
+    text-align: center;
+    margin-top: 70px;
+    font-family: 'Droid Sans', sans-serif;
+    font-weight: bold;
+}
+
+.gallery-container p.page-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 25px auto;
+    color: #888;
+    font-size: 18px;
+}
+
+.tz-gallery .row{
+    
+    margin-left: 100px;
+}
+
+.tz-gallery{
+    padding: 50px;
+}
+.tz-gallery .lightbox img {
+    width: 80%;
+    margin-bottom: 30px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+
+
+.tz-gallery .lightbox img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.tz-gallery img {
+    border-radius: 4px;
+}
+
+.baguetteBox-button {
+    background-color: transparent !important;
+}
+
+
+@media(max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .container.gallery-container {
+        border-radius: 0;
+    }
+}
+
+.tz-gallery h2{
+    margin-left: 3%;
+    margin-right: 3%;    
+    font-size: 2.5vw;
+    margin-bottom: 5%;
+    text-align: center;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: bold;
+    letter-spacing: 30px;
+    padding: 3vw;
+}
+/* Termina galeria */
+
+.encabezado{
+    background-color: #ede9e1;
+    width: 100vw;
+    height: 45px;
+    position: fixed;
+    top: 0%;
+    z-index: 100;
+}
+.encabezado img{
+    width: 40px;
+}
+
+.encabezado ._carrito{
+    margin-right: 3vh;
+    position: absolute;
+    right: 0;
+}
+.background{
+    position: relative;
+}
+.background-img{
+    top: 0;
+    width: 99vw;
+    opacity: 60%; 
+}
+
+.principal{
+    position: absolute;
+    top: 8vw;
+    left: 25vw;
+    margin-bottom: 10%;
+    width: 50vw;
+    background-color: #ede9e1;
+    z-index: 90;
+    align-self: center;
+}
+
+.logo_principal{
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;   
+}
+
+.principal h2{
+    font-size: 1.5vw;
+    margin-top: -10%;
+    margin-left: 50%;
+}
+.principal input{
+    font-family: 'Urbanist',sans-serif;
+    font-size: 1vw;
+    width: 20vw;
+    height: 4vh;
+    border-radius: 20px;
+    border-color: white;
+    border-style: solid;
+    outline: 0px;
+    margin-top: 5%;
+    margin-bottom: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+}
+
+.inicio_encabezado_linea{
+    color: #62766e;
+    background-color:#d4ddcd;
+}
+
+.inicio_encabezado_combo{
+    color: #9c757b;
+    background-color: #f2e6e0;
+}
+
+.inicio_encabezado_producto{
+    color: #88a4b8;
+    background-color: #dfebe8;
+}
+
+.contactanos img{
+    width: 2vw;
+    margin: 10px;
+    
+}
+
+.personalizado{
+    position: relative;
+    height: 35vh;
+    width: 99vw;
+    display: inline-flex;
+ }
+
+.personalizado, .visitanos, .contactanos{
+    font-family: 'Urbanist';
+    padding: 40px;
+}
+
+.personalizado .columna1{
+    width: 50vw;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.personalizado .columna2 img{
+    position: absolute;
+    top:20%;
+    bottom: 50%;
+    right: 10vw;
+    width: 15%;
+    
+}
+
+.personalizado .mensaje{
+    font-size: 18px;
+}
+
+.personalizado .escribenos{
+    font-size: 20px;
+    font-weight: bold;
+    color: #62766E;
+}
+.footer{
+    height: 40%;
+    width: 99vw;
+    background-color: #e1ede7;
+    display: inline-flex;
+}
+.footer .map{
+    margin-top: 5%;
+    margin-left: -20%;
+    height: 10%;
+    width: 10%;
+    margin-right: 15%;
+}
+
+.visitanos{
+    font-size: 20px;
+    margin-right: 25%;
+    margin-top: 4%;
+    display: inline-block;
+}
+.visitanos h2, .contactanos h2{
+    font-weight: bold;
+    font-size: 28px;;
+}
+.footer .logoOF{
+    margin: auto;
+    height: 15vw;
+    width: 18vw;
+    right: 0;
+}
+
+.escribenos_img img{
+    margin: 10px;
+    width: 4vw;
+}
+/* Barras laterales */
+.barra-lateral{
+    width: 300px !important;
+    height: 50vh;
+    background-color: #f5f5f5 !important;
+}
+ul img{
+    width: 25px;
+}
+ul{
+    font-size: 16px;
+    margin-bottom: 20px !important;
+    font-family: 'Urbanist';
+    font-weight: 700;
+}
+hr{
+    width: 80%;
+    margin-left: 25px !important;
+}
+ul:hover{
+    color:#D9A8A3;
+}
+
+
+/* carrusel */
+.carrusel{
+    height: auto;
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.carrusel .switchLeft img,
+.carrusel .switchRight img{
+    width: 30px;
+    margin: 0;
+}
+
+.carrusel .switchLeft,
+.carrusel .switchRight{
+    color: white;
+    font-weight: bold;
+    height: 100%;
+    width: 45px;
+    line-height: 250px;
+    font-size: 25px;
+    text-align: center;
+    font-family: sans-serif;
+    top: 0;
+    z-index: 3;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.carrusel .switchLeft{
+    position: absolute;
+    left: -50px;
+}
+.carrusel .switchRight{
+    position: absolute; 
+    right: -55px;
+}
+.box{
+    height: auto;
+    width: auto;
+    overflow-x:hidden;
+    /* white-space: nowrap; */
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 10px !important;
+    display: flex;
+    align-items: center;
+}
+.box .card{
+    min-width: 147px;
+    max-width: 147px;
+    height: 200px;
+    background-size: cover;
+    background-color: lightgreen;
+    margin: 5px 10px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+.box .card:hover{
+    transform: scale(1.1);
+    z-index: 5;
+}
+
+.h3-nombre, .h3-secundario{
+    text-align: left;
+}
+.h3-nombre{
+    font-size: 20px;
+}
+.h3-secundario{
+    font-size: 15px;
+    font-weight: 400;
+    color: #35373a;
+}
+.contenido{
+    padding-left: 10%;
+    padding-right: 10%;
+}

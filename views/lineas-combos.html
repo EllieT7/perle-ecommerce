@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Líneas y combos</title>
+    <link rel="stylesheet" href="..\public\css\lineas-combos.css">
+    <script type="text/javascript" src="..\js\lineas-combos-BD.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="..\public\js\lineas-combos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="encabezado">
+        <button class="boton">
+            <a href="inicioAdministrador.html">
+                <img src="..\public\resources\images\otros\greenBack.svg" alt="atrás">
+            </a>
+        </button>
+        <h3 id="titulo-pagina">Líneas y combos</h3>
+    </header>
+    <main class="contenido">
+        <!-- Seccion lineas -->
+        <div id="seccion-lineas">
+            <h4 class="titulo-secciones" id="titulo-lineas">Líneas</h4>
+            <div id="fila1-contenido">
+                <input type="text" name="busqueda" id="busqueda-linea">
+                <button id="nueva-linea" class="boton-agregar" data-bs-toggle="modal" data-bs-target="#agregarLinea" onclick="limpiarProductos()">
+                    Nueva Línea
+                    <img src="../public/resources/images/otros/whiteAdd.png" alt="añadir">
+                </button>
+            </div>
+            <br>
+            <!--Lista de productos lineas-->
+            <div class="productos-lineas">
+                <div class="row" id="galeria-lineas"></div>
+            </div>
+            <h5 style="cursor: pointer" id="mas-lineas" onclick="descomprimir('card-linea', this.id)">Ver más</h5>
+            <br>
+            <hr>
+        </div>
+        <!-- Seccion combos -->
+        <div id="seccion-combos">
+            <h4 class="titulo-secciones" id="titulo-combos">Combos</h4>
+            <div id="fila2-contenido">
+                <input type="text" name="busqueda" id="busqueda-combo">
+                <button id="nuevo-combo" class="boton-agregar" data-bs-toggle="modal" data-bs-target="#agregarCombo">
+                    Nuevo combo
+                    <img src="../public/resources/images/otros/whiteAdd.png" alt="añadir">
+                </button>
+            </div>
+            <br>
+            <!--Lista de productos combos-->
+            <div class="productos-combos">
+                <div class="row" id="galeria-combos"></div>
+            </div>
+            <h5 style="cursor: pointer" id="mas-combos" onclick="descomprimir('card-combo', this.id)">Ver más</h5>
+            <br>
+            <hr> 
+        </div>
+    </main>
+
+    <!-- Modals-->
+    <!-- Nueva línea -->
+    <div class="modal fade" id="agregarLinea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <form class="modal-content" action="http://localhost:8080/subirImagen" method="POST" enctype="multipart/form-data" id="form-nueva-linea">
+                <div class="modal-header">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar línea</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="contenido-body">
+                        <div class="contenido-body-img">
+                            <div class="imagen-agregar-linea"></div>
+                            <!-- <img src="../public/resources/images/otros/imgPredeterminada.png" alt="imagen"> -->
+                            <div class="boton-agregar-imagen">
+                                <button style="border-radius: 50%; border: 0;">
+                                    <input type="file" name="image" id="input-imagen-linea" onchange="ValidarTamaño(this,'.imagen-agregar-linea','#input-imagen-linea')">
+                                </button>
+                                <!-- <img src="..\public\resources\images\otros\add.png" alt="añadir imagen"> -->
+                            </div>
+                            <script>
+                                //Previsualizar imagen
+                                let input = document.getElementById('input-imagen-linea');
+                                let image = document.querySelector('.imagen-agregar-linea');
+                                console.log(input, image)
+                                input.addEventListener('change',(e)=>{
+                                let lector = new FileReader();
+                                lector.readAsDataURL(input.files[0]);
+                                lector.onload = () =>{
+                                    image.style.backgroundImage = `url(${lector.result})`
+                                }
+                                })
+                            </script>
+                        </div>
+                        <div class="contenido-body-2">
+                            <div class="formulario-linea">
+                                <h4 class="etiqueta" id="et-nombre">Nombre:</h4>
+                                <h4 class="etiqueta" id="et-descripcion">Descripción:</h4>
+                                <h4 class="etiqueta" id="et-productos">Productos:</h4>
+                                <input type="text" class="input-etiqueta1" id="input-nombre-linea">
+                                <textarea name="descripcion" id="desc-linea" cols="30" rows="6"></textarea>
+                                <div class="cajita-productos">
+                                    <button type="button" class="boton-agregar-producto" data-bs-toggle="modal" data-bs-target="#listaProductos-crear">
+                                        <img src="..\public\resources\images\otros\ovalAdd.png" alt="añadir imagen">
+                                    </button>
+                                    <div id="opciones-productos-crear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-dismiss="modal" onclick="limpiarImagen('.imagen-agregar-linea')">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    <button type="submit" class="boton-modal" tipo="aceptar" id="insertLinea" onclick="botonAgregarLinea(); limpiarImagen('.imagen-agregar-linea')">
+                        Agregar línea
+                        <img src="../public/resources/images/otros/whiteAdd.png" alt="añadir">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Editar linea -->
+    <div class="modal fade" id="editarLinea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <form class="modal-content" action="http://localhost:8080/subirImagen" method="POST" enctype="multipart/form-data" id="form-editar-linea">
+                <div class="modal-header">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Editar línea</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="contenido-body">
+                        <div class="contenido-body-img">
+                            <div class="imagen-editar-linea"  style="display: none;"></div>
+                            <img src="../public/resources/images/otros/imgPredeterminada.png" alt="imagen" id="imagen-linea">
+                            <button class="boton-agregar-imagen">
+                                <input type="file" name="image" id="input-imagen-editarLinea">
+                                <!-- <img src="..\public\resources\images\otros\add.png" alt="añadir imagen"> -->
+                            </button>
+                        </div>
+                        <script>
+                            //Previsualizar imagen
+                            let inputEditarLinea = document.getElementById('input-imagen-editarLinea');
+                            let imageEditarLinea = document.querySelector('.imagen-editar-linea');
+                            inputEditarLinea.addEventListener('change',(e)=>{
+                            let lectorEditarLinea = new FileReader();
+                            lectorEditarLinea.readAsDataURL(inputEditarLinea.files[0]);
+                            lectorEditarLinea.onload = () =>{
+                                imageEditarLinea.style.display = "block";
+                                document.getElementById('imagen-linea').style.display = "none";
+                                imageEditarLinea.style.backgroundImage = `url(${lectorEditarLinea.result})`;
+                            }
+                            })
+                        </script>
+                        <div class="contenido-body-2">
+                            <div class="formulario-linea">
+                                <h4 class="etiqueta" id="et-nombre">Nombre:</h4>
+                                <h4 class="etiqueta" id="et-descripcion">Descripción:</h4>
+                                <h4 class="etiqueta" id="et-productos">Productos:</h4>
+                                <input type="text" class="input-etiqueta1" id="input-nombre-editarLinea">
+                                <textarea name="descripcion" id="desc-linea-editar" cols="30" rows="6"></textarea>
+                                <div class="cajita-productos" id="opciones-productos">
+                                    <button class="boton-agregar-producto" data-bs-toggle="modal" data-bs-target="#listaProductos-editar">
+                                        <img src="..\public\resources\images\otros\ovalAdd.png" alt="añadir imagen">
+                                    </button>
+                                    <div id="opciones-productos-editar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-dismiss="modal" onclick="limpiarImagen('.imagen-editar-linea'); actualizarEditar('.imagen-editar-linea','imagen-linea')">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    <button type="submit" class="boton-modal" tipo="aceptar" id="guardar-linea" onclick="botonEditarLinea(this.className); limpiarImagen('.imagen-editar-linea'); actualizarEditar('.imagen-editar-linea','imagen-linea')">
+                        Guardar cambios
+                        <img src="../public/resources/images/otrasConfiguraciones/guardar.svg" alt="añadir">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Eliminar linea -->
+    <div class="modal fade" id="eliminarLinea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="margin-top: 10px;">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar línea</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 id="mensaje_eliminar_linea" style="text-align: center; color: #616161;"></h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-dismiss="modal">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    <button type="button" class="boton-modal" tipo="aceptar" id="eliminar-linea" onclick="botonEliminarLinea(this.className)">
+                        Eliminar
+                        <img src="../public/resources/images/otrasConfiguraciones/basurero_blanco.svg" alt="añadir">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ocultar linea-->
+    <div class="modal fade" id="ocultarLinea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="margin-top: 10px;">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Ocultar línea</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 id="mensaje_ocultar_linea" style="text-align: center; color: #616161;"></h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-dismiss="modal">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    <button type="submit" class="boton-modal" tipo="aceptar" onclick="ocultarLinea(this.className)" id="boton-ocultar-linea" data-bs-dismiss="modal">
+                        Ocultar
+                        <img src="../public/resources/images/iconos/ojo_rayado.svg" alt="añadir">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Eliminar combo -->
+    <div class="modal fade" id="eliminarCombo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="margin-top: 10px;">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar combo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 id="mensaje_eliminar_combo" style="text-align: center; color: #616161;"></h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-dismiss="modal">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    <button type="button" class="boton-modal" tipo="aceptar" id="eliminar-combo" onclick="botonEliminarCombo(this.className)">
+                        Eliminar
+                        <img src="../public/resources/images/otrasConfiguraciones/basurero_blanco.svg" alt="añadir">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ocultar combo-->
+    <div class="modal fade" id="ocultarCombo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="margin-top: 10px;">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Ocultar combo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 id="mensaje_ocultar_combo" style="text-align: center; color: #616161;">¿Está seguro de que quiere ocultar el combo 1?</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-dismiss="modal">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    
+                    <button type="submit" class="boton-modal" tipo="aceptar" onclick="ocultarCombo(this.className)" id="boton-ocultar-combo" data-bs-dismiss="modal">
+                        Ocultar
+                        <img src="../public/resources/images/iconos/ojo_rayado.svg" alt="añadir">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nuevo combo -->
+    <div class="modal fade" id="agregarCombo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <form class="modal-content" action="http://localhost:8080/subirImagen" method="POST" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar combo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="contenido-body">
+                        <div class="contenido-body-img">
+                            <div class="imagen-agregar-combo"></div>
+                            <!-- <img src="../public/resources/images/imgPredeterminada.png" alt="imagen"> -->
+                            <div class="boton-agregar-imagen">
+                                <button style="border-radius: 50%; border: 0;">
+                                    <input type="file" name="image" id="input-imagen-combo" onchange="ValidarTamaño(this,'.imagen-agregar-combo','#input-imagen-combo')">
+                                </button>
+                                <!-- <img src="..\public\resources\images\otros\add.png" alt="añadir imagen"> -->
+                            </div>
+                            <script>
+                                //Previsualizar imagen
+                                let inputCombo = document.getElementById('input-imagen-combo');
+                                let imageCombo = document.querySelector('.imagen-agregar-combo');
+                                console.log(inputCombo, imageCombo)
+                                inputCombo.addEventListener('change',(e)=>{
+                                let lectorCombo = new FileReader();
+                                lectorCombo.readAsDataURL(inputCombo.files[0]);
+                                lectorCombo.onload = () =>{
+                                    imageCombo.style.backgroundImage = `url(${lectorCombo.result})`;
+                                }
+                                })
+                            </script>
+                        </div>
+                        <div class="contenido-body-2">
+                            <div class="formulario-combo">
+                                <h4 class="etiqueta" id="et-nombre">Nombre:</h4>
+                                <h4 class="etiqueta" id="et-descripcion">Descripción:</h4>
+                                <h4 class="etiqueta" id="et-precio">Precio:</h4>
+                                <input type="text" class="input-etiqueta1" id="input-nombre-combo">
+                                <input type="text" class="input-etiqueta2" id="input-precio-combo">
+                                <textarea name="descripcion" id="desc-combo" cols="30" rows="6"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-dismiss="modal" onclick="limpiarImagen('.imagen-agregar-combo')">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    <button type="submit" class="boton-modal" tipo="aceptar" onclick="botonAgregarCombo(); limpiarImagen('.imagen-agregar-combo')">
+                        Agregar combo
+                        <img src="../public/resources/images/otros/whiteAdd.png" alt="añadir">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Editar combo -->
+    <div class="modal fade" id="editarCombo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <form class="modal-content" action="http://localhost:8080/subirImagen" method="POST" enctype="multipart/form-data" id="form-editar-combo">
+                <div class="modal-header">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Editar combo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="contenido-body">
+                        <div class="contenido-body-img">
+                            <div class="imagen-editar-combo"  style="display: none;"></div>
+                            <img src="../public/resources/images/otros/imgPredeterminada.png" alt="imagen" id="imagen-combo">
+                            <button class="boton-agregar-imagen">
+                                <input type="file" name="image" id="input-imagen-editarCombo">
+                            </button>
+                        </div>
+                        <script>
+                            //Previsualizar imagen
+                            let inputEditarCombo = document.getElementById('input-imagen-editarCombo');
+                            let imageEditarCombo = document.querySelector('.imagen-editar-combo');
+                            inputEditarCombo.addEventListener('change',(e)=>{
+                            let lectorEditarCombo = new FileReader();
+                            lectorEditarCombo.readAsDataURL(inputEditarCombo.files[0]);
+                            lectorEditarCombo.onload = () =>{
+                                imageEditarCombo.style.display = "block";
+                                document.getElementById('imagen-combo').style.display = "none";
+                                imageEditarCombo.style.backgroundImage = `url(${lectorEditarCombo.result})`;
+                            }
+                            })
+                        </script>
+                        <div class="contenido-body-2">
+                            <div class="formulario-combo">
+                                <h4 class="etiqueta" id="et-nombre">Nombre:</h4>
+                                <h4 class="etiqueta" id="et-descripcion">Descripción:</h4>
+                                <h4 class="etiqueta" id="et-precio">Precio:</h4>
+                                <input type="text" class="input-etiqueta1" id="input-nombre-editarCombo">
+                                <input type="text" class="input-etiqueta2" id="input-precio-editarCombo">
+                                <textarea name="descripcion" id="desc-combo-editar" cols="30" rows="6"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-dismiss="modal" onclick="limpiarImagen('.imagen-editar-combo'); actualizarEditar('.imagen-editar-combo','imagen-combo')">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    <button type="submit" class="boton-modal" tipo="aceptar" id="guardar-combo" onclick="botonEditarCombo(this.className); limpiarImagen('.imagen-agregar-combo'); actualizarEditar('.imagen-editar-combo','imagen-combo')">
+                        Guardar cambios
+                        <img src="../public/resources/images/otrasConfiguraciones/guardar.svg" alt="añadir">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Lista productos, crear-->
+    <div class="modal fade" id="listaProductos-crear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content" style="max-height: 70%; min-height: 50%;">
+                <div class="modal-header">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Seleccione los productos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="contenido-body-lista">
+                        <!-- Lista de productos  -->
+                        <div class="lista-productos">
+                            <div class="row" id="galeria-crear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-toggle="modal" data-bs-target="#agregarLinea">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    <button type="button" class="boton-modal" tipo="aceptar" data-bs-toggle="modal" data-bs-target="#agregarLinea" onclick="llenarProductos('crear')">
+                        Aceptar
+                        <img src="../public/resources/images/iconos/check_circulo.svg" alt="añadir">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Lista productos, editar-->
+    <div class="modal fade" id="listaProductos-editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content" style="max-height: 70%; min-height: 50%;">
+                <div class="modal-header">
+                    <button class="boton" data-bs-dismiss="modal">
+                        <img src="..\public\resources\images\otros\back.svg" alt="atrás">
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Seleccione los productos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="contenido-body-lista">
+                        <!-- Lista de productos  -->
+                        <div class="lista-productos">
+                            <div class="row" id="galeria-editar"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-modal" tipo="cancelar" data-bs-toggle="modal" data-bs-target="#editarLinea">
+                        Cancelar
+                        <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir">
+                    </button>
+                    <button type="button" class="boton-modal" tipo="aceptar" data-bs-toggle="modal" data-bs-target="#editarLinea" onclick="llenarProductos('editar')">
+                        Aceptar
+                        <img src="../public/resources/images/iconos/check_circulo.svg" alt="añadir">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="prueba"></div>
+
+</body>
+</html>

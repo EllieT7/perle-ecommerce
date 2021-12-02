@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--Dentro de la etiqueta <head> va informacion que mayormente el usuario no puede ver.-->
+    <head> 
+        <!--Metadatos-->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="Descripción" content="Menú de opciones para el administrador."/>
+        <!--<title> Título de la página (se verá en el navegador que se esté usando).-->
+        <title>Inicio administrador</title> 
+        <!--La siguiente etiqueta permite relacionar el archivo htlm con el css-->
+        <link rel="stylesheet" href="../public/css/inicioAdministrador.css">
+        <!--La siguiente etiqueta permite agregar el favicon del sitio-->
+        <link rel="shortcut icon" type="image/x-icon" href="../public/resources/images/ico_perle.ico"> 
+        <!--Fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">       
+    </head>
+    <!--Dentro de la etiqueta <body> va a contenerse todo lo que es el cuerpo de lo que es nuestro html
+    (el usuario lo va a ver).-->
+    <body> 
+        <div class="contenido">
+            <!--La estiqueta <header> nos sirve para crear un encabezado, código semántico-->
+            <div class="header">
+                <!--La etiqueta <h1> es para colocarle el título a la página, solo se puede usar UNA
+                vez por página, por que tiene un valor semántico.-->
+                <h1>Bienvenid@ user !</h1>
+                <!--La etiqueta <h2> es otra etiqueta para colocar un título, se puede usar todas las 
+                veces que sean necasarias.-->
+                <h2>Selecciona una de la siguientes opciones</h2>
+            </div>
+            <div class="perle">
+                <img src="../public/resources/images/otros/logoOF.png" alt="Icono de perle" title="Icono de perle"/>
+            </div>
+            <!--La etiqueta <div> nos permite separar el contenido por secciones-->
+            <div class="productos">
+                <a href="productosAdministrador.html">
+                    <div>
+                        <!--La etiqueta <img /> permite colocar imagenes al sitio-->
+                        <!--alt sirve para cuando no se encuentra la imagen, se muestra cuando la ruta esta mal 
+                        o por algun motivo no se encuentra la imagen.-->
+                        <img src="../public/resources/images/inicioAdministrador/icono_productos.png" alt="Icono de productos" title="Icono de productos"/>
+                    </div>
+                </a>
+                <!--La etiqueta <h3> es otra etiqueta para colocar un título, se puede usar todas las 
+                veces que sean necasarias.-->
+                <h3>Productos</h3>
+                <p>
+                    En esta opción podrás ver todos tus productos registrados, editar sus características, 
+                    o agregar nuevos a la lista.
+                </p>
+            </div>
+            <div class="lineasCombos">
+                <a href="lineas-combos.html">
+                    <div>
+                        <img src="../public/resources/images/inicioAdministrador/icono_lineasYcombos.png" alt="Icono de lineas y combos" title="Icono de lineas y combos"/>
+                    </div>
+                </a>
+                <h3>Lineas y Combos</h3>
+                <p>
+                    En esta opción podrás ver todas tus líneas productos y combos registrados, editar sus 
+                    características, o agregar nuevos a la lista.
+                </p>
+            </div>
+            <div class="pedidos">
+                <div>
+                <img src="../public/resources/images/inicioAdministrador/icono_pedidos.png" alt="Icono de pedidos" title="Icono de pedidos"/> 
+                </div>
+                <h3>Pedidos</h3>
+                <p>
+                    En esta opción podrás ver todos los pedidos registrados (aceptados y rechazados), además 
+                    puedes acceder a la información de tus clientes registrados. También puedes generar un 
+                    reporte semanal o mensual de los pedidos. 
+                </p> 
+            </div>
+            <div class="otrasConfiguraciones">
+                <a href="otrasConfiguraciones.html">
+                    <div>
+                        <img src="../public/resources/images/inicioAdministrador/icono_otrasConfiguraciones.png" alt="Icono de otras configuraciones" title="Icono de otras configuraciones"/>
+                    </div>
+                </a>
+                <h3>Otras configuraciones</h3>
+                <p>
+                    En esta opción podrás configurar la información de tu perfil, información de contacto
+                    (redes sociales) y precios de envío. 
+                </p> 
+            </div>
+        </div>
+    </body>
+</html>

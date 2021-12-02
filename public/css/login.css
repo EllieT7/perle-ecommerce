@@ -1,0 +1,80 @@
+
+body {
+  margin: 200;
+  padding: 0;
+  font-family: 'Open Sans', 'sans-serif';
+ 
+  }
+
+/* login div */
+.login {
+  background:#e1ede7;
+  width: 420px;
+  height: 312px;
+  margin: 0 auto;
+  padding: 0;
+  
+}
+
+/* login header */
+h1 {
+  color: #686367;
+  text-align: center;
+  font-size: 36px;
+  padding-top: 10px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* div containing form */
+form {
+  text-align: center;
+}
+
+/* username and password fields */
+input:not([type="button"]) {
+  font-family: 'Open Sans', 'sans-serif';
+  border: 1px solid #acacac;
+  color: rgb(0, 0, 0);
+  opacity: .7;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 250px;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  font-size: 16px;
+}
+
+input:focus:not([type="button"]) {
+  border: 1px solid hsl(0, 0%, 0%);
+  opacity: 1;
+  width: 320px;
+  outline: none;
+  color: #000000;
+}
+
+/* submit button */
+input[type="button"] {
+  padding: 15px 25px;
+  font-size: 22px;
+  width: 420px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  background-color: #616161 ;
+  box-shadow: 0px 5px 0px 0px #e3e4e5;
+  outline: none;
+  border: none;
+}
+
+input[type="button"]:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 0px 0px 0px;
+}
+
+input[type="button"]:hover {
+  background-color:#eecabd;
+}

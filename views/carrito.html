@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="..\public\css\carrito.css">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="text/javascript" src="..\public\js\carrito.js"></script>
+
+
+</head>
+<body onload="calcularTotales()">
+    <!-- Encabezado -->
+    <div class = "encabezado">
+        <img class="_menu" src="..\public\resources\images\otros\\menu.svg">
+        <img class="_carrito" src="..\public\resources\images\otros\\carrito.svg">
+    </div>
+    <div class="contenido">
+    <!-- Título -->
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="titulo">
+            <button class="boton">
+                <a href="index.html">
+                    <img src="..\public\resources\images\otros\\greenBack.svg" alt="atrás">
+                </a>
+            </button>
+            <img src="..\public\resources\images\otros\\carrito.png" alt="carrito" class="carrito">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page" style="color: #62766e;">Tu carrito</li>
+            </ol>
+            <div class="column2">
+                <h3>Selecciona tu departamento</h3>
+                <div class="comboBox">
+                    <select name="departamento" onchange="actualizarEnvio(this.value)">
+                        <option value="" selected>Selecciona una opción</option>
+                        <option value="Beni">Beni</option>
+                        <option value="Chuquisaca" >Chuquisaca</option>
+                        <option value="Cochabamba">Cochabamba</option>
+                        <option value="La_Paz">La Paz</option>
+                        <option value="Oruro">Oruro</option>
+                        <option value="Pando">Pando</option>
+                        <option value="Potosi">Potosí</option>
+                        <option value="Santa_Cruz">Santa Cruz</option>
+                        <option value="Tarija">Tarija</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="nombres_columnas">
+            <h3 class="et_producto">Producto</h3>
+            <h3 class="et_precio">Precio</h3>
+            <h3 class="et_cantidad">Cantidad</h3>
+            <h3 class="et_subtotal">Subtotal</h3>
+        </div>
+            
+        <div class="contenidoCarrito">
+            <div class="row" id="contenido_carrito"></div>
+        </div>
+        <footer class="informacion-pedido">
+            <h4 id="valor-subtotal" class="footer-subtotal">Subtotal: 0 Bs.</h4>
+            <h4 id="valor-envio" class="footer-costoEnvio">Costo de envio: 0 Bs.</h4>
+            <hr> 
+            <h4 id="valor-total" class="footer-total">Total: 0 Bs.</h4>
+            <a href="confirmacionPedido.html">
+               <button class="footer-boton">Finalizar compra <img src="../public/resources/images/otros/shopList.png" alt="compra"> </button>  
+            </a>
+        </footer>
+    </div>
+ 
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</html>
