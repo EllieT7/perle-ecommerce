@@ -5,154 +5,150 @@ module.exports = function(app, databaseService){
         })
     );
     
-    //---------------------------------------------------------------------------------------------------------------------------------
-    ///Andre
-    //ruta para leer los productos de la linea -> get(navegador o postman)
-    app.get('/Administrador/linea-productos',(request, response) =>{
-        databaseService.leerProductosLinea()
-        .then(resultado =>{
-            response.json(resultado);
-        }).catch(e=> {
-            response.status(500).json(e)
-            console.log(e);
-        });
-    });
-    app.get('/Administrador/lineas',(request, response) =>{
-        databaseService.leerLineas()
-        .then(resultado =>{
-            response.json(resultado);
-        }).catch(e=> {
-            response.status(500).json(e)
-            console.log(e);
-        });
-    });
-    //ruta para leer(llenar combos) -> get(navegador o postman)
-    app.get('/Administrador/combos',(request, response) =>{
-        databaseService.leerCombos()
-        .then(resultado =>{
-            response.json(resultado);
-        }).catch(e=> {
-            response.status(500).json(e)
-            console.log(e);
-        });
-    });
-    //ruta para leer(llenar modal productos) -> get(navegador o postman)
-    app.get('/Administrador/productos',(request, response) =>{
-        databaseService.leerProductos()
-        .then(resultado =>{
-            response.json(resultado);
-        }).catch(e=> {
-            response.status(500).json(e)
-            console.log(e);
-        });
-    });
-    app.get('/Administrador/contacto',(request, response) =>{
-        databaseService.leerContacto()
-        .then(resultado =>{
-            response.json(resultado);
-        }).catch(e=> {
-            response.status(500).json(e)
-            console.log(e);
-        });
-    });
-    app.post('/Cliente', (request, response) =>{
-        const dato = request.body; //request.body -> la info que viene 
-        console.log(dato);
-        databaseService.crearCli(dato)
-        /*    .then(()=>{
-                response.json({"mensaje":"dato ingresado!"});
-                console.log('dato ingresado!');
+    // //---------------------------------------------------------------------------------------------------------------------------------
+    // ///Andre
+    // //ruta para leer los productos de la linea -> get(navegador o postman)
+    // app.get('/Administrador/linea-productos',(request, response) =>{
+    //     databaseService.leerProductosLinea()
+    //     .then(resultado =>{
+    //         response.json(resultado);
+    //     }).catch(e=> {
+    //         response.status(500).json(e)
+    //         console.log(e);
+    //     });
+    // });
+    // app.get('/Administrador/lineas',(request, response) =>{
+    //     databaseService.leerLineas()
+    //     .then(resultado =>{
+    //         response.json(resultado);
+    //     }).catch(e=> {
+    //         response.status(500).json(e)
+    //         console.log(e);
+    //     });
+    // });
+    // //ruta para leer(llenar combos) -> get(navegador o postman)
+    // app.get('/Administrador/combos',(request, response) =>{
+    //     databaseService.leerCombos()
+    //     .then(resultado =>{
+    //         response.json(resultado);
+    //     }).catch(e=> {
+    //         response.status(500).json(e)
+    //         console.log(e);
+    //     });
+    // });
+    // //ruta para leer(llenar modal productos) -> get(navegador o postman)
+    // app.get('/Administrador/productos',(request, response) =>{
+    //     databaseService.leerProductos()
+    //     .then(resultado =>{
+    //         response.json(resultado);
+    //     }).catch(e=> {
+    //         response.status(500).json(e)
+    //         console.log(e);
+    //     });
+    // });
+    // app.get('/Administrador/contacto',(request, response) =>{
+    //     databaseService.leerContacto()
+    //     .then(resultado =>{
+    //         response.json(resultado);
+    //     }).catch(e=> {
+    //         response.status(500).json(e)
+    //         console.log(e);
+    //     });
+    // });
+    // app.post('/Cliente', (request, response) =>{
+    //     const dato = request.body; //request.body -> la info que viene 
+    //     console.log(dato);
+    //     databaseService.crearCli(dato)
+    //     /*    .then(()=>{
+    //             response.json({"mensaje":"dato ingresado!"});
+    //             console.log('dato ingresado!');
                 
-            }).catch(e =>{
-                response.status(500).json(e);
-                console.log(e);
-            });*/
-    });
+    //         }).catch(e =>{
+    //             response.status(500).json(e);
+    //             console.log(e);
+    //         });*/
+    // });
     
-    app.get('/Cliente', (request, response) =>{//sacas datos del admin
-        databaseService.leerCli()
-            .then(resultado=>{
-                response.json(resultado);
-                console.log(resultado);
+    // app.get('/Cliente', (request, response) =>{//sacas datos del admin
+    //     databaseService.leerCli()
+    //         .then(resultado=>{
+    //             response.json(resultado);
+    //             console.log(resultado);
                 
-            }).catch(e =>{
-                response.status(500).json(e);
-                console.log(e);
-            });
+    //         }).catch(e =>{
+    //             response.status(500).json(e);
+    //             console.log(e);
+    //         });
             
-    });
-    //ruta para leer -> get(navegador o postman)
-    app.get('/ejemplo',(request, response) =>{
-        databaseService.leer()
-        .then(resultado =>{
-            response.json(resultado);
-        }).catch(e=> {
-            response.status(500).json(e)
-            console.log(e);
-        });
-    });
-    //para sacar la contraseña del usuario y compararla con la que ingresa
-    app.get('/Cliente',(request, response) =>{ 
-        databaseService.Contra()
-        .then(resultado =>{
-            response.json(resultado);
-            console.log(resultado);
-        }).catch(e=> {
-            response.status(500).json(e)
-            console.log(e);
-        });
-    });
+    // });
+    // //ruta para leer -> get(navegador o postman)
+    // app.get('/ejemplo',(request, response) =>{
+    //     databaseService.leer()
+    //     .then(resultado =>{
+    //         response.json(resultado);
+    //     }).catch(e=> {
+    //         response.status(500).json(e)
+    //         console.log(e);
+    //     });
+    // });
+    // //para sacar la contraseña del usuario y compararla con la que ingresa
+    // app.get('/Cliente',(request, response) =>{ 
+    //     databaseService.Contra()
+    //     .then(resultado =>{
+    //         response.json(resultado);
+    //         console.log(resultado);
+    //     }).catch(e=> {
+    //         response.status(500).json(e)
+    //         console.log(e);
+    //     });
+    // });
     
-    //actualiza datos
-    app.post('/ActualizaC', (request, response) =>{
-        const dato = request.body; //request.body -> la info que viene 
-        console.log(dato);
-        console.log('paso');
-        databaseService.ActualizaC(dato)
-            .then(()=>{
-                response.json({"mensaje":"dato ingresado!"});
-                console.log('dato ingresado!');
+    // //actualiza datos
+    // app.post('/ActualizaC', (request, response) =>{
+    //     const dato = request.body; //request.body -> la info que viene 
+    //     console.log(dato);
+    //     console.log('paso');
+    //     databaseService.ActualizaC(dato)
+    //         .then(()=>{
+    //             response.json({"mensaje":"dato ingresado!"});
+    //             console.log('dato ingresado!');
 
-            }).catch(e =>{
-                response.status(500).json(e);
-                console.log(e);
-            });
+    //         }).catch(e =>{
+    //             response.status(500).json(e);
+    //             console.log(e);
+    //         });
             
-    });
+    // });
 
-    app.post('/Eliminar',(request, response) =>{
-        const dato = request.body; //request.body-> la info que viene 
-        console.log(dato);
-        databaseService.EliminarAdmin(dato)
-            .then(()=>{
-                 response.json({"mensaje":"Admin eliminado!"});
-                 console.log('Eliminado!');
-             }).catch(e =>{
-                response.status(500).json(e);
-                console.log(e);
-             });
+    // app.post('/Eliminar',(request, response) =>{
+    //     const dato = request.body; //request.body-> la info que viene 
+    //     console.log(dato);
+    //     databaseService.EliminarAdmin(dato)
+    //         .then(()=>{
+    //              response.json({"mensaje":"Admin eliminado!"});
+    //              console.log('Eliminado!');
+    //          }).catch(e =>{
+    //             response.status(500).json(e);
+    //             console.log(e);
+    //          });
 
         
-    });
-    app.post('/Editar',(request, response) =>{
-        const dato = request.body; //request.body-> la info que viene 
-        console.log(dato);
-        databaseService.EditarAdmin(dato)
-        .then(()=>{
-            response.json({"mensaje":"Admin Editado!"});
-            console.log('Editado!');
-        }).catch(e =>{
-            response.status(500).json(e);
-            console.log(e);
-        }); 
-    });
+    // });
+    // app.post('/Editar',(request, response) =>{
+    //     const dato = request.body; //request.body-> la info que viene 
+    //     console.log(dato);
+    //     databaseService.EditarAdmin(dato)
+    //     .then(()=>{
+    //         response.json({"mensaje":"Admin Editado!"});
+    //         console.log('Editado!');
+    //     }).catch(e =>{
+    //         response.status(500).json(e);
+    //         console.log(e);
+    //     }); 
+    // });
 
     // --------------------------------------------------------------------------------------------------------------------------------------------------------
     //----Mica y Nao --> lineas y combos, productos
-    app.get('/',(request, response) => {
-        // Status 200 -> todo bien 🤠
-        response.status(200).json({"mensaje":"Todo bien"});
-    });
 
     //ruta tipo post -> agregar datos
     // 2 argumentos, ruta y función
