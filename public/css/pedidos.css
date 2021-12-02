@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*Titulo*/
+h1 {
+    color:#62766e;
+    font-size: 250%;
+}
+.contenido {
+    font-family: 'Urbanist',sans-serif;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-bottom: 3%;
+    margin-right: 5%;
+    display: grid;
+    gap: 5vh 5vh;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "encabezado encabezado"
+                         "opcion pedidos";
+}
+/*Boton hacia atrás*/
+.encabezado .botonAtras, .modal-header .boton {
+    position:flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 100%;
+    border-width: 0px;
+    background-color: #e1ede7;
+    margin-right: 2%;
+}
+/*Area encabezado*/
+.encabezado {
+    grid-area: encabezado;
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    margin-left: 2%;
+}
+
+/*Agregar estilos a la lista de botones*/
+.menu_desplegable button:hover {
+    background-color: #e1ede7;
+}
+.menu_desplegable button {
+    display: flex;
+    align-items: center;
+    background-color: #f3f3f3;
+    border-width: 0;
+    margin-top: 1vh;
+    width: 100%;
+}
+.menu_desplegable button img {
+    margin-right: 2vh;
+    margin-left: 1vh;
+}
+.botones {
+    margin-left: 30px;
+    display: none;
+}
+.botones-activar {
+    display: block;
+}
+
+.boton_reporte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reporte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #62766e;
+    color: white;
+    width: 80%;
+    border-radius: 3px;
+    min-width: 200px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 1% 2%;
+    gap: 3%;
+    margin-top: 5vh;
+}
+/*Pedidos*/
+.listado_pedidos {
+    grid-area: pedidos;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 60vh;
+}
+
+/*Ventana de generar reporte*/
+.modal-header, .modal-footer {
+    border-width: 0 !important;
+}
+/*header: titulo*/
+.modal-header {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.modal-header .boton {
+    width: 44px;
+    height: 44px;
+    background-color: #ededed;
+    margin-right: 20px;
+}
+.modal-header .boton img {
+    width: 24px;
+}
+.modal-title{
+    font-family: 'Urbanist', sans-serif !important;
+    color: #616161;
+    font-size: 22px;
+    font-weight: 550;
+}
+
+.contenido-body {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-column-gap: 20px;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "contenido img";
+    padding-left: 60px;
+    padding-right: 45px;
+}
+/*Imagen*/
+.contenido-body-img {
+    grid-area: img;
+    display: flex;
+    justify-content: center;
+}
+.contenido-body-img img {
+    width: 70%;
+}
+/*Contenido formulario*/
+.contenido-body-2 {
+    grid-area: contenido;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3,auto);
+    grid-template-areas: "seleccion"
+                         "mensual"
+                         "personalizado";
+    gap: 10px;
+}
+.seleccion {
+    grid-area: seleccion;
+}
+.mensualmente {
+    grid-area: mensual;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2,auto);
+    grid-template-areas: "opcion"
+                         "configuraciones";
+}
+.opcion_mensual {
+    grid-area: opcion;
+}
+.configuraciones_mensual {
+    grid-area: configuraciones;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(2,auto);
+    grid-template-areas: "mes meses"
+                         "anio anios";
+    background: #d4d7d9;
+    padding: 10px 15px;
+    display: none;
+}
+.mes_reporte {
+    grid-area: mes;
+}
+#mes_reporte {
+    grid-area: meses;
+    width: 100%;
+    height: 4vh;
+}
+.anio_reporte {
+    grid-area: anio;
+}
+#anios_reporte {
+    grid-area: anios;
+    width: 100%;
+    height: 4vh;
+}
+
+.personalizado {
+    grid-area: personalizado;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2,auto);
+    grid-template-areas: "opcion"
+                         "configuraciones";
+}
+.opcion_personalizable {
+    grid-area: opcion;
+    padding: 0;
+    
+}
+.reporte_personalizado {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(2,auto);
+    grid-template-areas: "desde fechaD"
+                         "hasta fechaH";
+    background: #d4d7d9;
+    padding: 10px 15px;
+    display: none;
+}
+.desde_label {
+    grid-area: desde;
+}
+#desde {
+    grid-area: fechaD;
+    width: 100%;
+    height: 4vh;
+}
+.hasta_label {
+    grid-area: hasta;
+}
+#hasta {
+    grid-area: fechaH;
+    width: 100%;
+    height: 4vh;
+}
+.configuracion-activo {
+    display: grid;
+}
+/*Botones*/
+.btn_cancelar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #f59898;
+    color: white;
+    width: 12vw;
+    border-radius: 3px;
+    min-width: 100px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 0.5% 2%;
+    gap: 3%;
+    position: absolute;
+    left: 30px;
+}
+.btn_cancelar:hover {
+    background-color: #ef5350;
+}
+.btn_generar {
+    margin-right: 18px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #dbd695;
+    color: white;
+    width: 15vw;
+    border-radius: 3px;
+    min-width: 200px;
+    font-size: 90%;
+    font-family: 'Urbanist', sans-serif;
+    padding: 0.5% 2%;
+    gap: 3%;
+}
+.btn_generar:hover {
+    background: #d7b26c;
+}
+/*Contenido*/
+@media screen and (max-width: 991px){
+    .contenido-body {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, auto);
+        grid-row-gap: 20px;
+        grid-template-areas: "img"
+                             "contenido";
+        padding-left: 24px;
+        padding-right: 20px;
+    }
+    .contenido-body-img img {
+        width: 50%;
+    }
+}

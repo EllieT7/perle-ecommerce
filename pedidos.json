@@ -1,0 +1,32 @@
+[
+    {
+        "pedido": "1",
+        "fecha": "2021-02-03", 
+        "nombre": "Naomi Tacachira",
+        "telefono": "78860244", 
+        "departamento": "La Paz", 
+        "costo": "45", 
+        "producto": "Carrito",
+        "cantidad": "8"
+    },
+    {
+        "pedido": "2",
+        "fecha": "2021-02-03", 
+        "nombre": "Naomi Tacachira",
+        "telefono": "78860244", 
+        "departamento": "La Paz", 
+        "costo": "45", 
+        "producto": "Carrito",
+        "cantidad": "8"
+    },
+    {
+        "pedido": "2",
+        "fecha": "2021-02-03", 
+        "nombre": "Naomi Tacachira",
+        "telefono": "78860244", 
+        "departamento": "La Paz", 
+        "costo": "45", 
+        "producto": "Carrito",
+        "cantidad": "8"
+    }
+]

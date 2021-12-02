@@ -7,145 +7,145 @@ module.exports = function(app, databaseService){
     
     // //---------------------------------------------------------------------------------------------------------------------------------
     // ///Andre
-    // //ruta para leer los productos de la linea -> get(navegador o postman)
-    // app.get('/Administrador/linea-productos',(request, response) =>{
-    //     databaseService.leerProductosLinea()
-    //     .then(resultado =>{
-    //         response.json(resultado);
-    //     }).catch(e=> {
-    //         response.status(500).json(e)
-    //         console.log(e);
-    //     });
-    // });
-    // app.get('/Administrador/lineas',(request, response) =>{
-    //     databaseService.leerLineas()
-    //     .then(resultado =>{
-    //         response.json(resultado);
-    //     }).catch(e=> {
-    //         response.status(500).json(e)
-    //         console.log(e);
-    //     });
-    // });
-    // //ruta para leer(llenar combos) -> get(navegador o postman)
-    // app.get('/Administrador/combos',(request, response) =>{
-    //     databaseService.leerCombos()
-    //     .then(resultado =>{
-    //         response.json(resultado);
-    //     }).catch(e=> {
-    //         response.status(500).json(e)
-    //         console.log(e);
-    //     });
-    // });
-    // //ruta para leer(llenar modal productos) -> get(navegador o postman)
-    // app.get('/Administrador/productos',(request, response) =>{
-    //     databaseService.leerProductos()
-    //     .then(resultado =>{
-    //         response.json(resultado);
-    //     }).catch(e=> {
-    //         response.status(500).json(e)
-    //         console.log(e);
-    //     });
-    // });
-    // app.get('/Administrador/contacto',(request, response) =>{
-    //     databaseService.leerContacto()
-    //     .then(resultado =>{
-    //         response.json(resultado);
-    //     }).catch(e=> {
-    //         response.status(500).json(e)
-    //         console.log(e);
-    //     });
-    // });
-    // app.post('/Cliente', (request, response) =>{
-    //     const dato = request.body; //request.body -> la info que viene 
-    //     console.log(dato);
-    //     databaseService.crearCli(dato)
-    //     /*    .then(()=>{
-    //             response.json({"mensaje":"dato ingresado!"});
-    //             console.log('dato ingresado!');
+ 
+    app.get('/Administrador/linea-productos',(request, response) =>{
+        databaseService.leerProductosLinea()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+    app.get('/Administrador/lineas',(request, response) =>{
+        databaseService.leerLineas()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+    //ruta para leer(llenar combos) -> get(navegador o postman)
+    app.get('/Administrador/combos',(request, response) =>{
+        databaseService.leerCombos()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+    //ruta para leer(llenar modal productos) -> get(navegador o postman)
+    app.get('/Administrador/productos',(request, response) =>{
+        databaseService.leerProductos()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+    app.get('/Administrador/contacto',(request, response) =>{
+        databaseService.leerContacto()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+    app.post('/Cliente', (request, response) =>{
+        const dato = request.body; //request.body -> la info que viene 
+        console.log(dato);
+        databaseService.crearCli(dato)
+        /*    .then(()=>{
+                response.json({"mensaje":"dato ingresado!"});
+                console.log('dato ingresado!');
                 
-    //         }).catch(e =>{
-    //             response.status(500).json(e);
-    //             console.log(e);
-    //         });*/
-    // });
+            }).catch(e =>{
+                response.status(500).json(e);
+                console.log(e);
+            });*/
+    });
     
-    // app.get('/Cliente', (request, response) =>{//sacas datos del admin
-    //     databaseService.leerCli()
-    //         .then(resultado=>{
-    //             response.json(resultado);
-    //             console.log(resultado);
+    app.get('/Cliente', (request, response) =>{//sacas datos del admin
+        databaseService.leerCli()
+            .then(resultado=>{
+                response.json(resultado);
+                console.log(resultado);
                 
-    //         }).catch(e =>{
-    //             response.status(500).json(e);
-    //             console.log(e);
-    //         });
+            }).catch(e =>{
+                response.status(500).json(e);
+                console.log(e);
+            });
             
-    // });
-    // //ruta para leer -> get(navegador o postman)
-    // app.get('/ejemplo',(request, response) =>{
-    //     databaseService.leer()
-    //     .then(resultado =>{
-    //         response.json(resultado);
-    //     }).catch(e=> {
-    //         response.status(500).json(e)
-    //         console.log(e);
-    //     });
-    // });
-    // //para sacar la contraseña del usuario y compararla con la que ingresa
-    // app.get('/Cliente',(request, response) =>{ 
-    //     databaseService.Contra()
-    //     .then(resultado =>{
-    //         response.json(resultado);
-    //         console.log(resultado);
-    //     }).catch(e=> {
-    //         response.status(500).json(e)
-    //         console.log(e);
-    //     });
-    // });
+    });
+    //ruta para leer -> get(navegador o postman)
+    app.get('/ejemplo',(request, response) =>{
+        databaseService.leer()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+    //para sacar la contraseña del usuario y compararla con la que ingresa
+    app.get('/Cliente',(request, response) =>{ 
+        databaseService.Contra()
+        .then(resultado =>{
+            response.json(resultado);
+            console.log(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
     
-    // //actualiza datos
-    // app.post('/ActualizaC', (request, response) =>{
-    //     const dato = request.body; //request.body -> la info que viene 
-    //     console.log(dato);
-    //     console.log('paso');
-    //     databaseService.ActualizaC(dato)
-    //         .then(()=>{
-    //             response.json({"mensaje":"dato ingresado!"});
-    //             console.log('dato ingresado!');
+    //actualiza datos
+    app.post('/ActualizaC', (request, response) =>{
+        const dato = request.body; //request.body -> la info que viene 
+        console.log(dato);
+        console.log('paso');
+        databaseService.ActualizaC(dato)
+            .then(()=>{
+                response.json({"mensaje":"dato ingresado!"});
+                console.log('dato ingresado!');
 
-    //         }).catch(e =>{
-    //             response.status(500).json(e);
-    //             console.log(e);
-    //         });
+            }).catch(e =>{
+                response.status(500).json(e);
+                console.log(e);
+            });
             
-    // });
+    });
 
-    // app.post('/Eliminar',(request, response) =>{
-    //     const dato = request.body; //request.body-> la info que viene 
-    //     console.log(dato);
-    //     databaseService.EliminarAdmin(dato)
-    //         .then(()=>{
-    //              response.json({"mensaje":"Admin eliminado!"});
-    //              console.log('Eliminado!');
-    //          }).catch(e =>{
-    //             response.status(500).json(e);
-    //             console.log(e);
-    //          });
+    app.post('/Eliminar',(request, response) =>{
+        const dato = request.body; //request.body-> la info que viene 
+        console.log(dato);
+        databaseService.EliminarAdmin(dato)
+            .then(()=>{
+                 response.json({"mensaje":"Admin eliminado!"});
+                 console.log('Eliminado!');
+             }).catch(e =>{
+                response.status(500).json(e);
+                console.log(e);
+             });
 
         
-    // });
-    // app.post('/Editar',(request, response) =>{
-    //     const dato = request.body; //request.body-> la info que viene 
-    //     console.log(dato);
-    //     databaseService.EditarAdmin(dato)
-    //     .then(()=>{
-    //         response.json({"mensaje":"Admin Editado!"});
-    //         console.log('Editado!');
-    //     }).catch(e =>{
-    //         response.status(500).json(e);
-    //         console.log(e);
-    //     }); 
-    // });
+    });
+    app.post('/Editar',(request, response) =>{
+        const dato = request.body; //request.body-> la info que viene 
+        console.log(dato);
+        databaseService.EditarAdmin(dato)
+        .then(()=>{
+            response.json({"mensaje":"Admin Editado!"});
+            console.log('Editado!');
+        }).catch(e =>{
+            response.status(500).json(e);
+            console.log(e);
+        }); 
+    });
 
     // --------------------------------------------------------------------------------------------------------------------------------------------------------
     //----Mica y Nao --> lineas y combos, productos
@@ -421,4 +421,60 @@ module.exports = function(app, databaseService){
         console.log('producto -> dato actualizado!');
     });
     //-----------------------------------------------------------------------------------------------------------------------------------------
+
+    //--------------------------------Mica pedidos rutas
+
+
+    //ruta para leer pedidos nuevos almacenados en la BD-> get(navegador o postman)
+    app.get('/Administrador/pedidos/nuevos',(request, response) =>{
+        databaseService.leerPedidosNuevos()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+
+    //ruta para leer pedidos aceptados almacenados en la BD-> get(navegador o postman)
+    app.get('/Administrador/pedidos/aceptados',(request, response) =>{
+        databaseService.leerPedidosAceptados()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+
+    //ruta para leer pedidos rechazados almacenados en la BD-> get(navegador o postman)
+    app.get('/Administrador/pedidos/rechazados',(request, response) =>{
+        databaseService.leerPedidosRechazados()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+
+    //ruta para leer los clientes almacenados en la BD-> get(navegador o postman)
+    app.get('/Administrador/pedidos/clientes',(request, response) =>{
+        databaseService.leerClientes()
+        .then(resultado =>{
+            response.json(resultado);
+        }).catch(e=> {
+            response.status(500).json(e)
+            console.log(e);
+        });
+    });
+
+    //ruta para actualizar el estado de un pedido.
+    app.post('/Administrador/pedidos/editar-estado',  (request, response) =>{
+        const dato = request.body;
+        console.log(dato);
+        databaseService.updatePedido(dato);
+        console.log('pedido -> dato actualizado!');
+    });
+    //---------------------------------------------------------------------------------------------
 };

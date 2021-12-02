@@ -6,7 +6,8 @@ const express = require('express');
 const cors = require('cors');
 // Importar path
 const path = require('path');
-// Importar fs
+// Módulo File System, para poder trabajar con archivos (porder crearlos,
+// escribir contenido, y trabajar con archivos de texto plano).
 const fs = require('fs');
 // Importar multer
 const multer = require('multer');
@@ -86,3 +87,47 @@ require('./routes/routes-otrasConf')(app, dbServiceOC);
 app.listen(8080, function(){
     console.log('App listening on port 8080!')
 });
+
+
+//Mica
+// Para generar archivos pdf
+const PDFDocument = require("./pdfkit-tables");
+
+// Cargar la informacion.
+const pedidos = require("./pedidos.json");
+
+// Crear el documento pdf.
+const doc = new PDFDocument();
+
+// Enviar el documento a un archivo pdf.
+doc.pipe(fs.createWriteStream("pedidos.pdf"));
+
+// Agregar el encabezado.
+doc
+    .image("./public/resources/images/otros/logo.png", 50, 45, { width: 50 })
+    .fillColor("#444444")
+    .fontSize(20)
+    .text("Información de Pedidos", 110, 57)
+    .fontSize(10)
+    .text("Perle", 200, 65, { align: "right" })
+    .text("Bordados hechos con amor", 200, 80, { align: "right" })
+    .moveDown();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+const table = {
+    headers: ["Pedido", "Fecha aproximada de entrega", "Nombre del cliente", "Teléfono del cliente", "Departamento", "Costo del envío", "Producto", "Cantidad"],
+    rows: [
+        []
+    ]
+};
+
+// Cargar a las filas los datos.
+for (const pedido of pedidos) {
+    table.rows.push([pedido.pedido, pedido.fecha, pedido.nombre,
+        pedido.telefono, pedido.departamento, pedido.costo, pedido.producto, pedido.cantidad])
+}
+
+// Diseñar la tabla.
+doc.moveDown().table(table, 10, 125, { width: 590});
+
+// Finalizar el documento PDF y mostrar.
+doc.end();

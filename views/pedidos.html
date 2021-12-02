@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <head>
+        <!-- Metadatos -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Conexion con el archivo css -->
+        <link rel="stylesheet" href="../public/css/pedidos.css">
+        <!-- Titulo de la pagina -->
+        <title>Pedidos</title>
+        <!-- Logo de la pagina -->
+        <link rel="shortcut icon" type="image/x-icon" href="../public/resources/images/ico_perle.ico"> 
+        <!-- Conexion con Bootstrap -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- Conexion con GoogleFonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- Conexion con el archivo javascript(js) -->
+        <script typpe="text/javascript" src="../public/js/pedidos.js"></script>
+    </head>
+    <body>
+        <div class = "contenido">
+            <!-- Encabezado -->
+            <div class="encabezado">
+                <a href="inicioAdministrador.html">
+                    <button type="button" class="botonAtras">
+                        <img src="../public/resources/images/otros/greenBack.svg" alt="atrás" width="32px"/>
+                    </button>
+                </a>
+                <img id="pedido_icono" src="../public/resources/images/inicioAdministrador/icono_pedidos.png" alt="pedido" width="90px"/>
+                <h1><b>Pedidos</b></h1>
+            </div>
+
+            <!-- Opciones -->
+            <div class="opciones">
+                <!-- Menu desplegable -->
+                <div class="menu_desplegable">
+                    <button type="button" id="btn_menu" class="pedidos_entrada" onclick="desplegar()">
+                        <img id="abajo" src="../public/resources/images/pedidos/abajo.png" alt="abajo" width="16px"/>
+                        Información
+                    </button>
+                    <div id = "botones" class = "botones">
+                        <button type="button" onclick="">
+                            <img id="nuevo" src="../public/resources/images/pedidos/nuevo.svg" alt="nuevo" width="16px"/>
+                            Nuevos pedidos
+                        </button>
+                        <button type="button" onclick="">
+                            <img id="aceptado" src="../public/resources/images/pedidos/pedidoAceptado.svg" alt="aceptado" width="16px"/>
+                            Pedidos aceptados
+                        </button>
+                        <button type="button" onclick="">
+                            <img id="rechazado" src="../public/resources/images/pedidos/pedidoRechazado.svg" alt="rechazado" width="16px"/>
+                            Pedidos rechazados
+                        </button>
+                        <button type="button" onclick="">
+                            <img id="cliente" src="../public/resources/images/pedidos/clientes.svg" alt="cliente" width="16px"/>
+                            Clientes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Botón generar reporte -->
+                <div class="boton_reporte">
+                    <button type="button" id="btn_report" class="reporte" data-bs-toggle="modal" data-bs-target="#generarReporte">
+                        Generar reporte de pedidos
+                        <img id="lista" src="../public/resources/images/otros/shopList.png" alt="lista" width="16px"/>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pedidos -->
+            <div class="listado_pedidos" id="pedidos"></div>
+        </div>        
+        
+        <!-- Generar reporte -->
+         <!-- Editar -->
+         <div class="modal fade" id="generarReporte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <form class="modal-content" action="http://localhost:8080/upload" method="POST" enctype="multipart/form-data" id="form-nueva-productos">
+                    <div class="modal-header">
+                        <button class="boton" data-bs-dismiss="modal">
+                            <img src="../public/resources/images/otros/back.svg" alt="atrás">
+                        </button>
+                        <h5 class="modal-title" id="exampleModalLabel">Generar reporte de pedidos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="visibility: hidden;"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="contenido-body">
+
+                            <!--Grupo: imagen_reporte-->
+                            <div class="contenido-body-img">
+                                <img src="../public/resources/images/pedidos/reporte.svg" alt="imagen" id="imagen-reporte">
+                            </div>
+
+                            <div class="contenido-body-2">
+                                <div class="seleccion">
+                                    Selecciona el tipo de reporte
+                                </div>
+                                
+                                <!--Opciones de reporte-->
+                                <div class="mensualmente">
+                                    <!--Mensual-->
+                                    <div class="opcion_mensual">
+                                        <input type="radio" name="tipo" value="mensual" onclick="activarOpcion('config_mensual', 'config_pers')" checked> Mensual
+                                    </div>
+                                    <div id="config_mensual" class="configuraciones_mensual">
+                                        <div class="mes_reporte">Selecciona el mes:</div>
+                                        <select id="mes_reporte" name="mes">
+                                            <option value="Enero">Enero</option>
+                                            <option value="Febrero">Febrero</option>
+                                            <option value="Marzo">Marzo</option>
+                                            <option value="Abril">Abril</option>
+                                            <option value="Mayo">Mayo</option>
+                                            <option value="Junio">Junio</option>
+                                            <option value="Julio">Julio</option>
+                                            <option value="Agosto">Agosto</option>
+                                            <option value="Septiembre">Septiembre</option>
+                                            <option value="Octubre">Octubre</option>
+                                            <option value="Noviembre">Noviembre</option>
+                                            <option value="Diciembre">Diciembre</option>
+                                        </select>
+                                        <div class="anio_reporte">Selecciona el año:</div>
+                                        <input id="anios_reporte" type="number" class="tiempoProducto" min="2021" pattern="^[0-9]+" value="2021">
+                                    </div>
+                                </div>
+                                
+                                <!--Personalizado-->
+                                <div class="personalizado">
+                                    <div class="opcion_personalizable">
+                                        <input type="radio" name="tipo" value="personalizado"  onclick="activarOpcion('config_pers','config_mensual')"> Personalizado
+                                    </ldiv>
+                                    <div id="config_pers" class="reporte_personalizado">
+                                        <div class="desde_label">Desde:</div>
+                                        <input id="desde" class="desde_fecha" type="date">
+                                        <div class="hasta_label">Hasta:</div>
+                                        <input id="hasta" class="hasta_fecha" type="date">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!--Botones inferiores-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn_cancelar" tipo="cancelar" data-bs-dismiss="modal">
+                            Cancelar
+                            <img src="../public/resources/images/iconos/x_circulo.svg" alt="añadir" width="14px">
+                        </button>
+                        <button type="submit" class="btn_generar" tipo="aceptar" id="reporte_generar" onclick="">
+                            Generar reporte
+                            <img src="../public/resources/images/otrasConfiguraciones/guardar.svg" alt="añadir" width="14px">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

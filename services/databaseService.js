@@ -432,7 +432,65 @@ const databaseService = () => {
     const eliminarProducto = ({cod_prod}) => {
         return knex('producto').where('cod_prod', cod_prod).del();
     }
+    //----------------------------------------------------------------------------------------------------------------
+    //--------Mica -pedidos
+    //Leer pedidos nuevos, aceptado = null.
+    const leerPedidosNuevos = () => {
+        return knex.raw(
+            'select p.nro_pedido, p.fecha_pedido, p.fecha_aproximada_entrega, p.precio_envio, '+
+            'c.nombre, c.celular, '+
+            'd.nombre, d.costo_envio, '+
+            'mp.descripcion, '+
+            'pp.cantidad, pp.precio, '+
+            'pr.nombre '+
+            'from pedido p, cliente c, departamento d, metodo_pago mp, pedido_producto pp, producto pr '+
+            'where d.cod_dpto = c.Departamento_cod_dpto and c.cod_cli = p.Cliente_cod_cli and '+
+            'p.Metodo_Pago_cod_mp = mp.cod_mp and p.aceptado =  null and p.nro_pedido = pp.Pedido_nro_pedido '+
+            'and pp.Producto_cod_prod = pr.cod_prod'
+        )
+    };
 
+    //Leer pedidos aceptados, aceptado = 1.
+    const leerPedidosAceptados = () => {
+        return knex.raw(
+            'select p.nro_pedido, p.fecha_pedido, p.fecha_aproximada_entrega, p.precio_envio, '+
+            'c.nombre, c.celular, '+
+            'd.nombre, d.costo_envio, '+
+            'mp.descripcion, '+
+            'pp.cantidad, pp.precio, '+
+            'pr.nombre '+
+            'from pedido p, cliente c, departamento d, metodo_pago mp, pedido_producto pp, producto pr '+
+            'where d.cod_dpto = c.Departamento_cod_dpto and c.cod_cli = p.Cliente_cod_cli and '+
+            'p.Metodo_Pago_cod_mp = mp.cod_mp and p.aceptado = 1 and p.nro_pedido = pp.Pedido_nro_pedido '+
+            'and pp.Producto_cod_prod = pr.cod_prod'
+        )
+    };
+
+    //Leer pedidos rechazados, aceptado = 0.
+    const leerPedidosRechazados = () => {
+        return knex.raw(
+            'select p.nro_pedido, p.fecha_pedido, p.fecha_aproximada_entrega, p.precio_envio, '+
+            'c.nombre, c.celular, '+
+            'd.nombre, d.costo_envio, '+
+            'mp.descripcion, '+
+            'pp.cantidad, pp.precio, '+
+            'pr.nombre '+
+            'from pedido p, cliente c, departamento d, metodo_pago mp, pedido_producto pp, producto pr '+
+            'where d.cod_dpto = c.Departamento_cod_dpto and c.cod_cli = p.Cliente_cod_cli and '+
+            'p.Metodo_Pago_cod_mp = mp.cod_mp and p.aceptado = 0 and p.nro_pedido = pp.Pedido_nro_pedido '+
+            'and pp.Producto_cod_prod = pr.cod_prod'
+        )
+    };
+
+    //Leer clientes.
+    const leerClientes = () => {
+        return knex.raw('select * from cliente')
+    };
+
+    const updatePedido = ({nro_pedido, estado}) =>{
+        return knex.raw('update pedido set aceptado = '+estado+' where nro_pedido = '+nro_pedido+'')
+    };
+    //_--------------------------------------------------------------------------------------------
     //Funciones a utilizar.
     return {leerProductosLinea, leerLineas,
     leerCombos, leerProductos, 
@@ -454,7 +512,9 @@ const databaseService = () => {
     updateProducto,
     crearProducto,
     ocultarProducto,
-    eliminarProducto};
+    eliminarProducto,
+    leerPedidosNuevos, leerPedidosAceptados, leerPedidosRechazados, 
+    leerClientes, updatePedido};
 };
 
 

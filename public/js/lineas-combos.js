@@ -348,11 +348,10 @@ function ValidarTamaño(obj, imagen, inputImagen){
   {
   if (this.width.toFixed(0) != this.height.toFixed(0))
   {
-  alert("La imagen debe ser cuadrada");
-  limpiarImagen(imagen);
-  $(inputImagen).val("");
+    alert("La imagen debe ser cuadrada");
+    limpiarImagen(imagen);
+    $(inputImagen).val("");
   }
-
   };
   img.src = URL.createObjectURL(uploadFile);
 }
