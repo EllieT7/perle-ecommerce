@@ -104,7 +104,7 @@ function calcularTotal(){
 function Cliente(){ // funcion para la comparar que las contraseñas sean iguales
   //  if(document.exampleRadios.radio1.checked){
      
-    if(document.getElementById('radio1').checked){
+    if(document.getElementById('radio1').checked && document.getElementById('ptm').value==2){
         let nombre = document.getElementById('input-nombre').value;
         let celular = document.getElementById('input-celular').value;
         let correo = document.getElementById('input-correo').value;
@@ -130,18 +130,41 @@ function Cliente(){ // funcion para la comparar que las contraseñas sean iguale
         .catch(e=> {
             console.log(e);
         });
+        limpiar();
         }else{
-            alert('Debe llenar todos los campos');
+           alert('Debe llenar todos los campos');
         }
+        
     }
-    /*else{
+    else{
+     //   alert('La entrega personal solo es valida para Sucre');
+    //}
+
+    if(document.getElementById('radio2').checked){
         let nombre = document.getElementById('input-nombre').value;
         let celular = document.getElementById('input-celular').value;
         let correo = document.getElementById('input-correo').value;
         let fecha_cumple = document.getElementById('input-cumple').value;
         let ci = document.getElementById('input-CI').value;
-        let direccion = document.getElementById('input-direccion').value;        
-        let transaction = {nombre:nombre,celular:celular, correo:correo,fecha_cumple:fecha_cumple,ci:ci,direccion:direccion,Departamento_cod_dpto:1};
+        let direccion = document.getElementById('input-direccion').value;
+        let metodo = 2;
+        let departamento = document.getElementById('ptm').value;
+        let envio = document.getElementById('dato-envio').innerHTML;
+        envio = envio.substring(0,envio.length-4);
+        console.log(envio);
+        console.log(departamento);
+        let campos = [];
+        let vcurrier = false;
+        if(document.getElementById('currier').checked){
+            campos = [nombre,celular,correo,fecha_cumple,ci,direccion];   
+            vcurrier = true;
+        }
+        else{
+            campos = [nombre,celular,correo,fecha_cumple,ci];   
+            vcurrier = false;
+        }
+        if(validar(campos)){     
+        let transaction = {nombre:nombre,celular:celular, correo:correo,fecha_cumple:fecha_cumple,ci:ci,direccion:direccion,Departamento_cod_dpto:departamento,metodo:metodo,envio:envio,vcurrier:vcurrier};
         let transactionJson = JSON.stringify(transaction);
         console.log(transactionJson);
         fetch('http://localhost:8080/Cliente', {
@@ -151,7 +174,62 @@ function Cliente(){ // funcion para la comparar que las contraseñas sean iguale
         .catch(e=> {
             console.log(e);
         });
-    }*/
+        limpiar();
+
+        }else{
+            alert('Debe llenar todos los campos');
+        }
+        
+    }
+    else{
+    if(document.getElementById('radio3').checked){
+        let nombre = document.getElementById('input-nombre').value;
+        let celular = document.getElementById('input-celular').value;
+        let correo = document.getElementById('input-correo').value;
+        let fecha_cumple = document.getElementById('input-cumple').value;
+        let ci = document.getElementById('input-CI1').value;
+        let direccion = document.getElementById('input-direccion1').value;
+        let metodo = 3;
+        let departamento = document.getElementById('ptm').value;
+        let envio = document.getElementById('dato-envio').innerHTML;
+        envio = envio.substring(0,envio.length-4);
+        console.log(envio);
+        console.log(departamento);
+        let campos = [];
+        let vcurrier = false;
+        if(document.getElementById('currier1').checked){
+            campos = [nombre,celular,correo,fecha_cumple,ci,direccion];   
+           vcurrier = true;
+        }
+        else{
+            campos = [nombre,celular,correo,fecha_cumple,ci];   
+            vcurrier = false;
+        }
+        if(validar(campos)){     
+        let transaction = {nombre:nombre,celular:celular, correo:correo,fecha_cumple:fecha_cumple,ci:ci,direccion:direccion,Departamento_cod_dpto:departamento,metodo:metodo,envio:envio,vcurrier:vcurrier};
+        let transactionJson = JSON.stringify(transaction);
+        console.log(transactionJson);
+        fetch('http://localhost:8080/Cliente', {
+            method: 'post',
+            body: transactionJson
+        }).then(x => console.log('Registrado'))
+        .catch(e=> {
+            console.log(e);
+        });
+        limpiar();
+
+        }else{
+            alert('Debe llenar todos los campos');
+        }
+    }
+    else{
+        alert('La entrega personal solo es valida para Sucre');
+    }
+
+
+    }
+    }
+  
 }
 
 
@@ -166,3 +244,11 @@ function validar (campo){
     }
     return flag;
 };
+function limpiar(){
+    let nombre = document.getElementById('input-nombre').value="";
+    let celular = document.getElementById('input-celular').value="";
+    let correo = document.getElementById('input-correo').value="";
+    let fecha_cumple = document.getElementById('input-cumple').value="";
+    let ci = document.getElementById('input-CI').value="";
+    let direccion = document.getElementById('input-direccion').value="";
+}

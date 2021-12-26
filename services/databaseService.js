@@ -43,10 +43,9 @@ const databaseService = () => {
     // ---------------------------------------------------------------------------------------------------------------------------------------------------------
     // ------------------Andre -----Carrito -> confirmacion pedido
 
-    //Nombre de la tabla
     const table = 'Cliente';
 
-    const crearCli = ({nombre, celular,correo,fecha_cumple,ci,direccion,Departamento_cod_dpto,metodo,envio}) =>{ //Deconstruyendo json
+    const crearCli = ({nombre, celular,correo,fecha_cumple,ci,direccion,Departamento_cod_dpto,metodo,envio,vcurrier}) =>{ //Deconstruyendo json
         /*knex(table).raw(
             'insert into cliente'
         )*/
@@ -73,9 +72,9 @@ const databaseService = () => {
             const moment  = require('moment')
 
             var hora = moment().format('hh:mm:ss');
-            var de = dd;
+            var de = dd+5;
             var aceptado  = true;
-            var currier = true;
+           
 
             today = yyyy+'-'+mm+'-'+dd;
             today1 = yyyy+'-'+mm+'-'+de;
@@ -85,8 +84,7 @@ const databaseService = () => {
                 fecha_aproximada_entrega:today1,
                 Hora:hora,
                 precio_envio:envio,
-                aceptado:aceptado,
-                currier:currier,
+                currier:vcurrier,
                 Cliente_cod_cli: id,
                 Metodo_pago_cod_mp:metodo
             });
@@ -99,8 +97,8 @@ const databaseService = () => {
         return knex('cliente').select();
     };
     
-    const ActualizaC =({newpasword})=>{// importante poner entre {} caso contrario tomara como si fuera un objeto
-        return knex(table).where('cod_admin',777).update({'pasword': newpasword});
+    const ActualizaC =({newpassword})=>{// importante poner entre {} caso contrario tomara como si fuera un objeto
+        return knex(table).where('cod_admin',777).update({'password': newpassword});
     };
     
     const EliminarAdmin =({cod_admin})=>{
@@ -122,7 +120,7 @@ const databaseService = () => {
     };
 
     const Contra = ()=>{
-        return knex(table).select('pasword').where('cod_admin',777);// saca la contraseña del usuario por ahora es un solo codigo 777
+        return knex(table).select('password').where('cod_admin',777);// saca la contraseña del usuario por ahora es un solo codigo 777
     }
     const datos = ()=>{
         return knex(table,).select('nombre').where('cod_admin',777);// saca datos del admin

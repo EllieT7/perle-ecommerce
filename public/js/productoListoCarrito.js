@@ -1,5 +1,5 @@
 const imagen = {
-    src: "..\\resources\\images\\combo1.jpg",
+    src: "..\\public\\resources\\images\\Administrador\\combo1.jpg",
     alt: "Gatitos, no se puede decir más",
     nombre: "Cajita | La noche estrellada",
     descripcion: "La noche estrellada es un óleo sobre lienzo del pintor posimpresionista neerlandés Vincent van Gogh . Pintado en junio de 1889, representa la vista desde la ventana orientada al este de su habitación de asilo en Saint-Rémy-de-Provence, justo antes del amanecer, con la adición de un pueblo imaginario.",
@@ -47,56 +47,50 @@ imagenProducto(imagen);
 
 const imagenes = [
 {
-    src: "..\\resources\\images\\combo3.jpg",
+    src: "..\\public\\resources\\images\\Administrador\\combo3.jpg",
     alt: "Gatitos, no se puede decir más",
     nombre: "Artículo 1",
     precio: 52,
 },
 {
-    src: "..\\resources\\images\\combo2.jpg",
+    src: "..\\public\\resources\\images\\Administrador\\combo2.jpg",
     alt: "Gatitos, no se puede decir más",
     nombre: "Artículo 2",
     precio: 82,
 },
 
 {
-    src: "..\\resources\\images\\linea1.jpg",
+    src: "..\\public\\resources\\images\\Administrador\\linea1.jpg",
     alt: "Gatitos, no se puede decir más",
     nombre: "Artículo 1",
     precio: 52,
 },
 {
-    src: "..\\resources\\images\\linea2.jpg",
+    src: "..\\public\\resources\\images\\Administrador\\linea2.jpg",
     alt: "Gatitos, no se puede decir más",
     nombre: "Artículo 1",
     precio: 52,
 },
 {
-    src: "..\\resources\\images\\linea3.jpg",
+    src: "..\\public\\resources\\images\\Administrador\\linea3.jpg",
     alt: "Gatitos, no se puede decir más",
     nombre: "Artículo 1",
     precio: 52,
 },
 {
-    src: "..\\resources\\images\\producto1.jpg",
+    src: "..\\public\\resources\\images\\Administrador\\producto1.jpg",
     alt: "Gatitos, no se puede decir más",
     nombre: "Artículo 1",
     precio: 52,
 },
 {
-    src: "..\\resources\\images\\producto2.jpg",
+    src: "..\\public\\resources\\images\\Administrador\\combo3.jpg",
     alt: "Gatitos, no se puede decir más",
     nombre: "Artículo 1",
     precio: 52,
 },
 {
-    src: "..\\resources\\images\\combo3.jpg",
-    alt: "Gatitos, no se puede decir más",
-    nombre: "Artículo 1",
-    precio: 52,
-},
-{
-    src: "..\\resources\\images\\combo2.jpg",
+    src: "..\\public\\resources\\images\\Administrador\\combo2.jpg",
     alt: "Gatitos, no se puede decir más",
     nombre: "Artículo 2",
     precio: 82,

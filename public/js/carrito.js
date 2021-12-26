@@ -1,7 +1,7 @@
 const imagenes = [
     {
         cod: 1,
-        src: "..\\resources\\images\\combo3.jpg",
+        src: "..\\public\\resources\\images\\Administrador\\combo3.jpg",
         alt: "Gatitos, no se puede decir más",
         nombre: "Artículo 1",
         descripcion:"............",
@@ -10,7 +10,7 @@ const imagenes = [
     },
     {
         cod: 2,
-        src: "..\\resources\\images\\combo3.jpg",
+        src: "..\\public\\resources\\images\\Administrador\\combo3.jpg",
         alt: "Gatitos, no se puede decir más",
         nombre: "Artículo 1",
         descripcion:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in arcu porta, pulvinar nunc quis, egestas dui. Suspendisse rhoncus, tellus tempor posuere porttitor, tortor lorem iaculis nunc",
@@ -19,7 +19,7 @@ const imagenes = [
     },
     {
         cod: 3,
-        src: "..\\resources\\images\\combo3.jpg",
+        src: "..\\public\\resources\\images\\Administrador\\combo3.jpg",
         alt: "Gatitos, no se puede decir más",
         nombre: "Artículo 1",
         descripcion:"............",
@@ -28,7 +28,7 @@ const imagenes = [
     },
     {
         cod: 4,
-        src: "..\\resources\\images\\combo3.jpg",
+        src: "..\\public\\resources\\images\\Administrador\\combo3.jpg",
         alt: "Gatitos, no se puede decir más",
         nombre: "Artículo 1",
         descripcion:"............",
@@ -67,12 +67,10 @@ const imagenes = [
                         <span class="next" onclick="nextNum('box_${imagen.cod}', 'h6_${imagen.cod}',${imagen.precio})"></span>
                         <span class="prev" onclick="prevNum('box_${imagen.cod}', 'h6_${imagen.cod}',${imagen.precio})"></span>        
                     </div>
-
                     <script type="text/javascript">
                         inicializar('box_${imagen.cod}');
                         reestablecer(${imagen.cantidad},'box_${imagen.cod}');
-                    </script>
-                     
+                    </script> 
                     <div class="subtotal">
                         <h6 class="subtotal-producto"id="h6_${imagen.cod}">Bs. ${imagen.cantidad*imagen.precio}</h6>
                     </div>

@@ -1,11 +1,18 @@
+//const { response } = require("express");
+
+//const { response } = require("express");
+
+//const { response } = require("express");
+
+
 /*Llenar todos los datos en los campos*/
 window.onload = function llenarDatos(){
-    fetch('http://localhost:8080/datos', {// solicitamos el pasword del usuario para comparar sera un get
+    fetch('http://localhost:8080/datos', {// solicitamos el password del usuario para comparar sera un get
 
     }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
         .then(data=>{ 
         const listings=data.map(listing=>{ // Convertimos el objeto en un arreglo para hacer la comparacion
-        document.getElementById("user").value=listing.usuario;
+        document.getElementById("user").value=listing.user;
         document.getElementById("name").value=listing.nombre;
         document.getElementById("correo").value=listing.correo;
     })
@@ -13,7 +20,7 @@ window.onload = function llenarDatos(){
     .catch(e=> {
      console.log(e);
     });
-    fetch('http://localhost:8080/instagram', {// solicitamos el pasword del usuario para comparar sera un get
+    fetch('http://localhost:8080/instagram', {// solicitamos el password del usuario para comparar sera un get
     }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
     .then(data=>{ 
         const listings=data.map(listing=>{
@@ -26,7 +33,7 @@ window.onload = function llenarDatos(){
     });
     
     // whatsapp
-     fetch('http://localhost:8080/whap', {// solicitamos el pasword del usuario para comparar sera un get
+     fetch('http://localhost:8080/whap', {// solicitamos el password del usuario para comparar sera un get
     }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
     .then(data=>{ 
         const listings=data.map(listing=>{
@@ -40,7 +47,7 @@ window.onload = function llenarDatos(){
     
     // facebook
     
-        fetch('http://localhost:8080/facebook', {// solicitamos el pasword del usuario para comparar sera un get
+        fetch('http://localhost:8080/facebook', {// solicitamos el password del usuario para comparar sera un get
     }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
     .then(data=>{ 
         const listings=data.map(listing=>{
@@ -53,7 +60,7 @@ window.onload = function llenarDatos(){
     
     // Tiktok
     
-        fetch('http://localhost:8080/tel', {// solicitamos el pasword del usuario para comparar sera un get
+        fetch('http://localhost:8080/tel', {// solicitamos el password del usuario para comparar sera un get
     }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
     .then(data=>{ 
         const listings=data.map(listing=>{
@@ -67,7 +74,7 @@ window.onload = function llenarDatos(){
     
     // Email
     
-        fetch('http://localhost:8080/email', {// solicitamos el pasword del usuario para comparar sera un get
+        fetch('http://localhost:8080/email', {// solicitamos el password del usuario para comparar sera un get
     }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
     .then(data=>{ 
         const listings=data.map(listing=>{
@@ -80,7 +87,7 @@ window.onload = function llenarDatos(){
     });
     //Precio
 
-    fetch('http://localhost:8080/LPP', {// solicitamos el pasword del usuario para comparar sera un get
+    fetch('http://localhost:8080/LPP', {// solicitamos el password del usuario para comparar sera un get
     }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
     .then(data=>{ 
         const listings=data.map(listing=>{
@@ -91,7 +98,7 @@ window.onload = function llenarDatos(){
     .catch(e=> {
         console.log(e);
     });
-    document.getElementById("price").value="35";
+  
 
     
     
@@ -250,6 +257,9 @@ function btnChange (id_div, id_img, id_input){
         var x = document.getElementById(id_div);
         x.removeChild (y);
         n = 0;
+
+
+        
         console.log('guardado');
         fetch('http://localhost:8080/datos', {
         
@@ -261,7 +271,7 @@ function btnChange (id_div, id_img, id_input){
             
             // Convertimos el objeto en un arreglo para hacer la comparacion
             if(id_input=='user')
-                document.getElementById(id_input).value=listing.usuario;
+                document.getElementById(id_input).value=listing.user;
             if(id_input=='name')
                 document.getElementById(id_input).value=listing.nombre;
             if(id_input=='correo')
@@ -275,7 +285,7 @@ function btnChange (id_div, id_img, id_input){
         });
         // instagram
         if(id_input=='ig'){
-            fetch('http://localhost:8080/instagram', {// solicitamos el pasword del usuario para comparar sera un get
+            fetch('http://localhost:8080/instagram', {// solicitamos el password del usuario para comparar sera un get
         }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
         .then(data=>{ 
             const listings=data.map(listing=>{
@@ -289,7 +299,7 @@ function btnChange (id_div, id_img, id_input){
         }
         // whatsapp
         if(id_input=='wsp'){
-            fetch('http://localhost:8080/whap', {// solicitamos el pasword del usuario para comparar sera un get
+            fetch('http://localhost:8080/whap', {// solicitamos el password del usuario para comparar sera un get
         }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
         .then(data=>{ 
             const listings=data.map(listing=>{
@@ -303,7 +313,7 @@ function btnChange (id_div, id_img, id_input){
         }
         // facebook
         if(id_input=='fb'){
-            fetch('http://localhost:8080/facebook', {// solicitamos el pasword del usuario para comparar sera un get
+            fetch('http://localhost:8080/facebook', {// solicitamos el password del usuario para comparar sera un get
         }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
         .then(data=>{ 
             const listings=data.map(listing=>{
@@ -316,7 +326,7 @@ function btnChange (id_div, id_img, id_input){
         }
         // Tiktok
         if(id_input=='tel'){
-            fetch('http://localhost:8080/tel', {// solicitamos el pasword del usuario para comparar sera un get
+            fetch('http://localhost:8080/tel', {// solicitamos el password del usuario para comparar sera un get
         }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
         .then(data=>{ 
             const listings=data.map(listing=>{
@@ -330,7 +340,7 @@ function btnChange (id_div, id_img, id_input){
         }
         // Email
         if(id_input=='email'){
-            fetch('http://localhost:8080/email', {// solicitamos el pasword del usuario para comparar sera un get
+            fetch('http://localhost:8080/email', {// solicitamos el password del usuario para comparar sera un get
         }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
         .then(data=>{ 
             const listings=data.map(listing=>{
@@ -387,7 +397,9 @@ function cambiarDepto(){
     data.forEach(function(p){
         if (p.nombre == d){
             document.getElementById("price").value=p.costo_envio;
+            console.log(d);
             document.getElementById("cualquiera").src=`../public/resources/images/otrasConfiguraciones/${d}.png`;// trabaja aqui xd
+
         }
     });
     })
@@ -414,7 +426,7 @@ function renderizarAdministradores(admin) {
                         <div class="informacion${admi.cod_admin}">
                             Información del administrador <br>
                             <t>Código:  ${admi.cod_admin} <br>
-                            <t>Nombre de usuario:  ${admi.usuario} <br>
+                            <t>Nombre de usuario:  ${admi.user} <br>
                             <t> Correo electrónico:  ${admi.correo} <br>
                             Tipo de administrador:  ${admi.tipo_admin}
                         </div>
@@ -496,17 +508,16 @@ const table = 'Administrador';
 
 function verificar(){ // funcion para la comparar que las contraseñas sean iguales
     
-        let cod_admin = document.getElementById('admi_name').value=390;
         let nombre = document.getElementById('admi_name').value;
         let correo = document.getElementById('admi_correo').value;
         let usuario = document.getElementById('admi_user').value;
-        let pasword = document.getElementById('txtPasswordE').value;
+        let password = document.getElementById('txtPasswordE').value;
         let confirmaPass = document.getElementById('txtPasswordC').value;
-        let tipo_admin = document.getElementById('txtPasswordC').value=1;        
-        if(pasword!=confirmaPass){ //compara las contraseñas
+        let tipo_admin = document.getElementById('txtPasswordC').value=0;        
+        if(password!=confirmaPass){ //compara las contraseñas
             console.log('error contraseñas no coinciden')
         }else{
-        let transaction = {cod_admin:cod_admin, nombre:nombre, correo:correo,usuario:usuario,pasword:pasword,tipo_admin:tipo_admin};
+        let transaction = { nombre:nombre, correo:correo,usuario:usuario,password:password,tipo_admin:tipo_admin};
         let transactionJson = JSON.stringify(transaction);
         console.log(transactionJson);
         //renderizarAdministradores(transactionJson);
@@ -526,23 +537,23 @@ function verificar(){ // funcion para la comparar que las contraseñas sean igua
 function ActualizaContra(){ // funcion para cambiar cotnra
     
     
-    let pasword = document.getElementById('txtPasswordA').value;// extraemos datos de los campos del html
-    let newpasword = document.getElementById('txtPasswordN').value;        
+    let password = document.getElementById('txtPasswordA').value;// extraemos datos de los campos del html
+    let newpassword = document.getElementById('txtPasswordN').value;        
     
     
-    fetch('http://localhost:8080/contra', {// solicitamos el pasword del usuario para comparar sera un get
+    fetch('http://localhost:8080/contra', {// solicitamos el password del usuario para comparar sera un get
 
     }).then(response => response.json()) // al inicio se recibe los datos en forma de objeto
         .then(data=>{ 
         const listings=data.map(listing=>{ // Convertimos el objeto en un arreglo para hacer la comparacion
-        console.log(listing.pasword);
+        console.log(listing.password);
         console.log(data);
 
-        if(listing.pasword!=pasword){ // comparamos
+        if(listing.password!=password){ // comparamos
             console.log('error contraseñas no coinciden')
-            console.log(listing.pasword,'f')
+            console.log(listing.password,'f')
         }else{
-            let transaction = {newpasword:newpasword}; 
+            let transaction = {newpassword:newpassword}; 
             let transactionJson = JSON.stringify(transaction);
             console.log(transactionJson); // cargamos y mandamos datos 
             fetch('http://localhost:8080/ActualizaC', { // mandamos el post 
@@ -559,4 +570,8 @@ function ActualizaContra(){ // funcion para cambiar cotnra
     .catch(e=> {
         console.log(e);
     });
+    
+    
+
+
 }

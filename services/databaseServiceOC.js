@@ -1,3 +1,5 @@
+const { json } = require('body-parser');
+
 const databaseServiceOC = () => {
 
     const knex = require('knex')({
@@ -12,34 +14,33 @@ const databaseServiceOC = () => {
     });
 
     //Nombre de la tabla
-    const table = 'Administrador';
 
-    const crearDpto = ({cod_admin, nombre, correo,usuario,pasword,tipo_admin}) =>{ //Deconstruyendo json
-        return knex('administrador').insert({
-            cod_admin: cod_admin,
+
+    const crearDpto = ({ nombre, correo,user,password,tipo_admin}) =>{ //Deconstruyendo json
+        return knex('Administrador').insert({
             nombre : nombre,
             correo : correo,
-            usuario:usuario,
-            pasword:pasword,
+            user:user,
+            password:password,
             tipo_admin:tipo_admin
         });//retorna una promesa
     };
     
-    const ActualizaC =({newpasword})=>{// importante poner entre {} caso contrario tomara como si fuera un objeto
-        return knex('administrador').where('cod_admin',390).update({'pasword': newpasword});
+    const ActualizaC =({newpassword})=>{// importante poner entre {} caso contrario tomara como si fuera un objeto
+        return knex('Administrador').where('cod_admin',1).update({'password': newpassword});
     };
     
     const EliminarAdmin =({cod_admin})=>{
-        return knex('administrador').where('cod_admin',cod_admin).del();
+        return knex('Administrador').where('cod_admin',cod_admin).del();
     };
     const EditarAdminN =({nombre})=>{ 
-        return knex('administrador').where('cod_admin',390).update({'nombre': nombre});
+        return knex('Administrador').where('cod_admin',1).update({'nombre': nombre});
     };
     const EditarAdminC =({correo})=>{ 
-        return knex('administrador').where('cod_admin',390).update({'correo':correo});
+        return knex('Administrador').where('cod_admin',1).update({'correo':correo});
     };
-    const EditarAdminU =({usuario})=>{ 
-        return knex('administrador').where('cod_admin',390).update({'usuario':usuario});
+    const EditarAdminU =({user})=>{ 
+        return knex('Administrador').where('cod_admin',1).update({'user':user});
     };
     //actualiza datos de la tabla contacto
     const EditarIns =({insta})=>{ 
@@ -62,14 +63,14 @@ const databaseServiceOC = () => {
     };
 
     const leer = () =>{
-        return knex('administrador').select();
+        return knex('Administrador').select();
     };
 
     const Contra = ()=>{
-        return knex('administrador').select('pasword').where('cod_admin',390);
+        return knex('Administrador').select('password').where('cod_admin',1);
     }
     const datos = ()=>{
-        return knex('administrador','contacto').select().where('cod_admin',390);
+        return knex('Administrador','contacto').select().where('cod_admin',1);
     }
     const insta = ()=>{
         return knex('contacto').select().where('cod_contacto',1);
@@ -90,13 +91,13 @@ const databaseServiceOC = () => {
         return knex('Departamento').select().where('cod_dpto',1);
     }
     const Admin = ()=>{
-        return knex('administrador').select();
+        return knex('Administrador').select();
     }
     const departamento = ()=>{
         return knex('Departamento').select();
     }
     const UsuarioA = ()=>{
-        return knex('administrador').select();
+        return knex('Administrador').select();
     }
     
 

@@ -1,3 +1,4 @@
+/* Deshabilitando etiquetas h5 */
 h5{
     display: none;
 }
@@ -363,5 +364,4 @@ footer .footer-total{
     .quantity span{
         font-size: 20px;
     }
-    
 }

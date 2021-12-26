@@ -316,7 +316,7 @@ a:link, a:visited, a:active {
 .footer .map{
     margin-top: 5%;
     margin-left: -20%;
-    height: 10%;
+    height: 150px;
     width: 10%;
     margin-right: 15%;
 }
